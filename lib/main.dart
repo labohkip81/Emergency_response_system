@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'detail_page.dart';
 import './menu.dart';
 import 'package:share/share.dart';
+//The import below handles opening a new page webpage within the app
+import 'model/first_aid.dart';
 
 //This package is used to load external urls
 import 'package:url_launcher/url_launcher.dart';
@@ -124,7 +126,9 @@ class _ListPageState extends State<ListPage> {
             ),
             IconButton(
               icon: Icon(Icons.blur_on, color: Colors.white),
-              onPressed: () {},
+              onPressed: () {
+            
+              },
             ),
             IconButton(
               icon: Icon(Icons.hotel, color: Colors.white),
@@ -257,5 +261,21 @@ _launchURL() async {
     await launch(url);
   } else {
     throw 'Could not launch $url';
+  }
+}
+
+
+//This function opens google maps
+
+
+class MapUtils {
+
+  static openMap(double latitude, double longitude) async {
+    String googleUrl = 'https://www.google.com/maps/search/?api=1&query=$latitude,$longitude';
+    if (await canLaunch(googleUrl)) {
+      await launch(googleUrl);
+    } else {
+      throw 'Could not open the map.';
+    }
   }
 }

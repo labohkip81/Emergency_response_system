@@ -18,6 +18,8 @@ environment:
 
 dependencies:
   url_launcher:
+  location:
+  
   share:
   flutter:
     sdk: flutter
