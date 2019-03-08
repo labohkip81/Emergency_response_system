@@ -1,6 +1,11 @@
 # kdharura
 
-A new Flutter application.
+An Emergency Response Project.
+
+
+#Usage
+
+This project consists of a web version and a mobile app for simplicity of usage
 
 ## Getting Started
 
