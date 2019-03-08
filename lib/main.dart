@@ -1,6 +1,8 @@
 import 'model/lesson.dart';
 import 'package:flutter/material.dart';
 import 'detail_page.dart';
+import './menu.dart';
+import 'package:share/share.dart';
 
 void main() => runApp(new MyApp());
 
@@ -138,9 +140,19 @@ class _ListPageState extends State<ListPage> {
       backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
       title: Text(widget.title),
       actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.list),
-          onPressed: () {},
+        PopupMenuButton<String>(
+          onSelected: choiceAction ,
+          itemBuilder: (BuildContext context){
+            return Constant.choices.map((String choice){
+              return PopupMenuItem<String>(
+                value:choice,
+                 
+                child: Text(choice),
+              );
+
+            }).toList();
+          }
+          
         )
       ],
     );
@@ -157,7 +169,7 @@ class _ListPageState extends State<ListPage> {
 List getLessons() {
   return [
     Lesson(
-        title: "Introduction to Driving",
+        title: "Ambulance",
         level: "Beginner",
         indicatorValue: 0.33,
         price: 20,
@@ -206,4 +218,17 @@ List getLessons() {
         content:
             "Start by taking a couple of minutes to read the info in this section. Launch your app and click on the Settings menu.  While on the settings page, click the Save button.  You should see a circular progress indicator display in the middle of the page and the user interface elements cannot be clicked due to the modal barrier that is constructed.  ")
   ];
+}
+// to implement functionality fo popup menu
+void choiceAction(String choice){
+  if(choice ==Constant.Settings){
+    // code when buttons clicked to open another activity
+    Share.share('Text');
+    
+
+ 
+
+  }
+
+   
 }
