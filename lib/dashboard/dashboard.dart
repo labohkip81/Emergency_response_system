@@ -17,7 +17,7 @@ class _DashboardState extends State<Dashboard>{
     appBar: AppBar(
       title: Text("K-Dharura"),
       elevation: .1,
-      backgroundColor: Color.fromRGBO(49, 87, 110, 1.0),
+      backgroundColor: Colors.blue,
     ),
   body: Container(
     padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 2.0),
@@ -25,7 +25,7 @@ class _DashboardState extends State<Dashboard>{
       crossAxisCount: 2,
       padding: EdgeInsets.all(3.0),
       children: <Widget>[
-        makeDashboardItem("emergency Contacts", Icons.folder),
+        makeDashboardItem("emergency Contacts", Icons.folder,),
         makeDashboardItem("Personal Details", Icons.account_circle),
         makeDashboardItem("Fire Emergency", Icons.train),
         makeDashboardItem("Accident", Icons.flare),
