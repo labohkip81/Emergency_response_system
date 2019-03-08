@@ -17,6 +17,7 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+  url_launcher:
   share:
   flutter:
     sdk: flutter
