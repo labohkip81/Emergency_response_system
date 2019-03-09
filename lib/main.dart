@@ -98,6 +98,7 @@ class _ListPageState extends State<ListPage> {
             if(lesson.type=="ambulance"){
               //The call me function has been defined below the main. dart file
               _callMe();
+              _textMe();
               print(" Hey there you're calling an ambulance");
             }
             // Navigator.push(
