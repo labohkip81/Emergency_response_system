@@ -96,6 +96,8 @@ class _ListPageState extends State<ListPage> {
 
 
             if(lesson.type=="ambulance"){
+              //The call me function has been defined below the main. dart file
+              _callMe();
               print(" Hey there you're calling an ambulance");
             }
             // Navigator.push(
@@ -278,6 +280,25 @@ _launchURL() async {
     throw 'Could not launch $url';
   }
 }
+
+
+
+//This code opens phone and passes a phone number parameter when clicked.
+_callMe() async {
+    // Android
+    const uri = 'tel:+1 222 060 888';
+    if (await canLaunch(uri)) {
+      await launch(uri);
+    } else {
+      // iOS
+      const uri = 'tel:001-22-060-888';
+      if (await canLaunch(uri)) {
+        await launch(uri);
+      } else {
+        throw 'Could not launch $uri';
+      }
+    }
+  }
 
 
 //This function opens google maps
