@@ -54,7 +54,7 @@ class _ListPageState extends State<ListPage> {
             decoration: new BoxDecoration(
                 border: new Border(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
-            child: Icon(Icons.autorenew, color: Colors.white),
+            child: Icon(Icons.near_me, color: Colors.white),
           ),
           title: Text(
             lesson.title,
@@ -178,6 +178,7 @@ List getLessons() {
     Lesson(
         title: "Ambulance",
         level: "Beginner",
+        type = "ambulance",
         indicatorValue: 0.33,
         price: 20,
         content:
