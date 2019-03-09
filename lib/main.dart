@@ -17,10 +17,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'K-Dharura App',
       theme: new ThemeData(
           primaryColor: Color.fromRGBO(58, 66, 86, 1.0), fontFamily: 'Raleway'),
-      home: new ListPage(title: 'Lessons'),
+      home: new ListPage(title: 'K-Dharura'),
       // home: DetailPage(),
     );
   }
@@ -142,7 +142,7 @@ class _ListPageState extends State<ListPage> {
             IconButton(
               icon: Icon(Icons.blur_on, color: Colors.white),
               onPressed: () {
-            _openMap();
+              _textMe();
               },
             ),
             IconButton(
@@ -299,6 +299,25 @@ _callMe() async {
       }
     }
   }
+  
+  //This code automatically sends sms to the user
+
+_textMe() async {
+    // Android
+    const uri = 'sms:+39 349 060 888';
+    if (await canLaunch(uri)) {
+      await launch(uri);
+    } else {
+      // iOS
+      const uri = 'sms:0039-222-060-888';
+      if (await canLaunch(uri)) {
+        await launch(uri);
+      } else {
+        throw 'Could not launch $uri';
+      }
+    }
+
+
 
 
 //This function opens google maps
@@ -316,3 +335,4 @@ _callMe() async {
       throw 'Could not open the map.';
     }
   }
+}
