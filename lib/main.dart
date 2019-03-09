@@ -36,6 +36,8 @@ class ListPage extends StatefulWidget {
 }
 
 class _ListPageState extends State<ListPage> {
+
+
   List lessons;
 
   @override
@@ -46,6 +48,7 @@ class _ListPageState extends State<ListPage> {
 
   @override
   Widget build(BuildContext context) {
+    
     ListTile makeListTile(Lesson lesson) => ListTile(
           contentPadding:
               EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
@@ -54,10 +57,13 @@ class _ListPageState extends State<ListPage> {
             decoration: new BoxDecoration(
                 border: new Border(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
+           
             child: Icon(Icons.near_me, color: Colors.white),
           ),
+
+         
           title: Text(
-            lesson.title,
+          lesson.title,
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
           // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
@@ -85,10 +91,17 @@ class _ListPageState extends State<ListPage> {
           trailing:
               Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => DetailPage(lesson: lesson)));
+           
+          //This if Statement determines what happens when the button/ card is clicked
+
+
+            if(lesson.type=="ambulance"){
+              print(" Hey there you're calling an ambulance");
+            }
+            // Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //         builder: (context) => DetailPage(lesson: lesson)));
           },
         );
 
@@ -176,11 +189,12 @@ class _ListPageState extends State<ListPage> {
 List getLessons() {
   return [
     Lesson(
-        title: "Ambulance",
+        title: "Ambulance Emergency Call",
         level: "Beginner",
-        type = "ambulance",
+        type: "ambulance",
         indicatorValue: 0.33,
         price: 20,
+        
         content:
             "Start by taking a couple of minutes to read the info in this section. Launch your app and click on the Settings menu.  While on the settings page, click the Save button.  You should see a circular progress indicator display in the middle of the page and the user interface elements cannot be clicked due to the modal barrier that is constructed."),
     Lesson(
