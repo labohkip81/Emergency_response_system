@@ -58,7 +58,10 @@ class _ListPageState extends State<ListPage> {
                 border: new Border(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
            
-            child: Icon(Icons.near_me, color: Colors.white),
+            child:
+             Icon(Icons.near_me, color: Colors.white),
+  
+           
           ),
 
          
@@ -66,6 +69,7 @@ class _ListPageState extends State<ListPage> {
           lesson.title,
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
+
           // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
 
           subtitle: Row(
@@ -98,8 +102,12 @@ class _ListPageState extends State<ListPage> {
             if(lesson.type=="ambulance"){
               //The call me function has been defined below the main. dart file
               _callMe();
-              _textMe();
+            
               print(" Hey there you're calling an ambulance");
+            }
+            else 
+            if(lesson.type=="Fire"){
+              _textMe();
             }
             // Navigator.push(
             //     context,
@@ -193,7 +201,7 @@ List getLessons() {
   return [
     Lesson(
         title: "Ambulance Emergency Call",
-        level: "Beginner",
+        level: "Health",
         type: "ambulance",
         indicatorValue: 0.33,
         price: 20,
@@ -201,14 +209,15 @@ List getLessons() {
         content:
             "Start by taking a couple of minutes to read the info in this section. Launch your app and click on the Settings menu.  While on the settings page, click the Save button.  You should see a circular progress indicator display in the middle of the page and the user interface elements cannot be clicked due to the modal barrier that is constructed."),
     Lesson(
-        title: "Observation at Junctions",
-        level: "Beginner",
+        title: "Report fire Ocurence",
+        level: "Critical",
+        type: "Fire",
         indicatorValue: 0.33,
         price: 50,
         content:
             "Start by taking a couple of minutes to read the info in this section. Launch your app and click on the Settings menu.  While on the settings page, click the Save button.  You should see a circular progress indicator display in the middle of the page and the user interface elements cannot be clicked due to the modal barrier that is constructed."),
     Lesson(
-        title: "Reverse parallel Parking",
+        title: "Call Police",
         level: "Intermidiate",
         indicatorValue: 0.66,
         price: 30,
