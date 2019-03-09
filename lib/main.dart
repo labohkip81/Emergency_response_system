@@ -2,7 +2,7 @@ import 'model/lesson.dart';
 import 'package:flutter/material.dart';
 import 'detail_page.dart';
 import './menu.dart';
-import 'package:share/share.dart';
+import './login.dart';
 
 void main() => runApp(new MyApp());
 
@@ -107,7 +107,7 @@ class _ListPageState extends State<ListPage> {
         },
       ),
     );
-
+// Bottom App
     final makeBottom = Container(
       height: 55.0,
       child: BottomAppBar(
@@ -128,8 +128,13 @@ class _ListPageState extends State<ListPage> {
               onPressed: () {},
             ),
             IconButton(
-              icon: Icon(Icons.account_box, color: Colors.white),
-              onPressed: () {},
+              icon: Icon(Icons.account_box, color: Colors.white),    
+              // code to direct us to a new Page called Login page  
+              onPressed: () {
+                Navigator.push(context,
+              MaterialPageRoute(builder: (context) => FirstRoute()),
+                );
+              }
             )
           ],
         ),
@@ -222,13 +227,10 @@ List getLessons() {
 // to implement functionality fo popup menu
 void choiceAction(String choice){
   if(choice ==Constant.Settings){
-    // code when buttons clicked to open another activity
-    Share.share('Text');
-    
-
- 
+    print('Settings');
 
   }
+  
 
    
 }
