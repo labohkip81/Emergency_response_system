@@ -2,7 +2,7 @@ import 'model/lesson.dart';
 import 'package:flutter/material.dart';
 import 'detail_page.dart';
 import './menu.dart';
-import './login.dart';
+import './sign_up.dart';
 
 void main() => runApp(new MyApp());
 
