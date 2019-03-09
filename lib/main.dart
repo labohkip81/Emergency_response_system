@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 import 'detail_page.dart';
 import './menu.dart';
 import 'package:share/share.dart';
+//The import below handles opening a new page webpage within the app
+
+
+//This package is used to load external urls
+import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(new MyApp());
 
@@ -12,10 +17,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'K-Dharura App',
       theme: new ThemeData(
           primaryColor: Color.fromRGBO(58, 66, 86, 1.0), fontFamily: 'Raleway'),
-      home: new ListPage(title: 'Lessons'),
+      home: new ListPage(title: 'K-Dharura'),
       // home: DetailPage(),
     );
   }
@@ -31,6 +36,8 @@ class ListPage extends StatefulWidget {
 }
 
 class _ListPageState extends State<ListPage> {
+
+
   List lessons;
 
   @override
@@ -41,6 +48,7 @@ class _ListPageState extends State<ListPage> {
 
   @override
   Widget build(BuildContext context) {
+    
     ListTile makeListTile(Lesson lesson) => ListTile(
           contentPadding:
               EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
@@ -49,12 +57,19 @@ class _ListPageState extends State<ListPage> {
             decoration: new BoxDecoration(
                 border: new Border(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
-            child: Icon(Icons.autorenew, color: Colors.white),
+           
+            child:
+             Icon(Icons.near_me, color: Colors.white),
+  
+           
           ),
+
+         
           title: Text(
-            lesson.title,
+          lesson.title,
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
+
           // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
 
           subtitle: Row(
@@ -80,10 +95,24 @@ class _ListPageState extends State<ListPage> {
           trailing:
               Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => DetailPage(lesson: lesson)));
+           
+          //This if Statement determines what happens when the button/ card is clicked
+
+
+            if(lesson.type=="ambulance"){
+              //The call me function has been defined below the main. dart file
+              _callMe();
+            
+              print(" Hey there you're calling an ambulance");
+            }
+            else 
+            if(lesson.type=="Fire"){
+              _textMe();
+            }
+            // Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //         builder: (context) => DetailPage(lesson: lesson)));
           },
         );
 
@@ -121,7 +150,9 @@ class _ListPageState extends State<ListPage> {
             ),
             IconButton(
               icon: Icon(Icons.blur_on, color: Colors.white),
-              onPressed: () {},
+              onPressed: () {
+              _textMe();
+              },
             ),
             IconButton(
               icon: Icon(Icons.hotel, color: Colors.white),
@@ -169,21 +200,24 @@ class _ListPageState extends State<ListPage> {
 List getLessons() {
   return [
     Lesson(
-        title: "Ambulance",
-        level: "Beginner",
+        title: "Ambulance Emergency Call",
+        level: "Health",
+        type: "ambulance",
         indicatorValue: 0.33,
         price: 20,
+        
         content:
             "Start by taking a couple of minutes to read the info in this section. Launch your app and click on the Settings menu.  While on the settings page, click the Save button.  You should see a circular progress indicator display in the middle of the page and the user interface elements cannot be clicked due to the modal barrier that is constructed."),
     Lesson(
-        title: "Observation at Junctions",
-        level: "Beginner",
+        title: "Report fire Ocurence",
+        level: "Critical",
+        type: "Fire",
         indicatorValue: 0.33,
         price: 50,
         content:
             "Start by taking a couple of minutes to read the info in this section. Launch your app and click on the Settings menu.  While on the settings page, click the Save button.  You should see a circular progress indicator display in the middle of the page and the user interface elements cannot be clicked due to the modal barrier that is constructed."),
     Lesson(
-        title: "Reverse parallel Parking",
+        title: "Call Police",
         level: "Intermidiate",
         indicatorValue: 0.66,
         price: 30,
@@ -223,12 +257,92 @@ List getLessons() {
 void choiceAction(String choice){
   if(choice ==Constant.Settings){
     // code when buttons clicked to open another activity
-    Share.share('Text');
+    Share.share('Text');}
+  else if(choice == Constant.Account){
+    print("Accounts Button Clicked");
+
+  }
+  else if(choice==Constant.Share){
+    Share.share("www.github.com/labohkip81/Emergency_response_system.git kindly visit to contribute");
+
+  }
+  else{
     
+    _launchURL();
+  
 
  
 
   }
 
    
+
+}
+
+
+//This functionality opens an external url link.
+
+_launchURL() async {
+  const url = 'https://stjohnkenya.org';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+
+
+//This code opens phone and passes a phone number parameter when clicked.
+_callMe() async {
+    // Android
+    const uri = 'tel:+1 222 060 888';
+    if (await canLaunch(uri)) {
+      await launch(uri);
+    } else {
+      // iOS
+      const uri = 'tel:001-22-060-888';
+      if (await canLaunch(uri)) {
+        await launch(uri);
+      } else {
+        throw 'Could not launch $uri';
+      }
+    }
+  }
+  
+  //This code automatically sends sms to the user
+
+_textMe() async {
+    // Android
+    const uri = 'sms:+39 349 060 888';
+    if (await canLaunch(uri)) {
+      await launch(uri);
+    } else {
+      // iOS
+      const uri = 'sms:0039-222-060-888';
+      if (await canLaunch(uri)) {
+        await launch(uri);
+      } else {
+        throw 'Could not launch $uri';
+      }
+    }
+
+
+
+
+//This function opens google maps
+
+
+
+//Google Map Functionality with string Passed.
+
+
+ _openMap() async {
+    const googleUrl = 'https://www.google.com/maps/search/?api=1&query=Hospitals';
+    if (await canLaunch(googleUrl)) {
+      await launch(googleUrl);
+    } else {
+      throw 'Could not open the map.';
+    }
+  }
 }
