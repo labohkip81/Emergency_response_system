@@ -2,6 +2,7 @@ import 'model/lesson.dart';
 import 'package:flutter/material.dart';
 import 'detail_page.dart';
 import './menu.dart';
+import './login.dart';
 //The import below handles opening a new page webpage within the app
 
 
@@ -159,7 +160,10 @@ class _ListPageState extends State<ListPage> {
             ),
             IconButton(
               icon: Icon(Icons.account_box, color: Colors.white),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context, MaterialPageRoute(builder: (context)=> FirstRoute()));
+              },
             )
           ],
         ),
