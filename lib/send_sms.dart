@@ -3,14 +3,14 @@ import 'dart:async';
 
 import 'package:flutter_sms/flutter_sms.dart';
 
-void main() => runApp(new MyApp());
+void main() => runApp(new ThirdRoute());
 
-class MyApp extends StatefulWidget {
+class ThirdRoute extends StatefulWidget {
 @override
 _MyAppState createState() => new _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<ThirdRoute> {
 TextEditingController _controllerPeople, _controllerMessage;
 String _message, body;
 List<String> people = [];

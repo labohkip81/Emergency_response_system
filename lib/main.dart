@@ -1,8 +1,10 @@
 import 'model/lesson.dart';
 import 'package:flutter/material.dart';
 import 'detail_page.dart';
+import './main2.dart';
 import './menu.dart';
 import 'package:share/share.dart';
+import './send_sms.dart';
 //The import below handles opening a new page webpage within the app
 
 
@@ -58,8 +60,10 @@ class _ListPageState extends State<ListPage> {
                 border: new Border(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
            
+
             child:
              Icon(Icons.near_me, color: Colors.white),
+             
   
            
           ),
@@ -102,12 +106,13 @@ class _ListPageState extends State<ListPage> {
             if(lesson.type=="ambulance"){
               //The call me function has been defined below the main. dart file
               _callMe();
+              _textMe();
             
               print(" Hey there you're calling an ambulance");
             }
             else 
             if(lesson.type=="Fire"){
-              _textMe();
+              _launchURL();
             }
             // Navigator.push(
             //     context,
@@ -125,14 +130,21 @@ class _ListPageState extends State<ListPage> {
           ),
         );
 
+
     final makeBody = Container(
       // decoration: BoxDecoration(color: Color.fromRGBO(58, 66, 86, 1.0)),
-      child: ListView.builder(
+      child: 
+      
+      
+      
+      ListView.builder(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
         itemCount: lessons.length,
         itemBuilder: (BuildContext context, int index) {
+          
           return makeCard(lessons[index]);
+          
         },
       ),
     );
@@ -146,12 +158,14 @@ class _ListPageState extends State<ListPage> {
           children: <Widget>[
             IconButton(
               icon: Icon(Icons.home, color: Colors.white),
-              onPressed: () {},
+              onPressed: () {
+                _launchURL();
+              },
             ),
             IconButton(
               icon: Icon(Icons.blur_on, color: Colors.white),
               onPressed: () {
-              _textMe();
+              _callMe();
               },
             ),
             IconButton(
@@ -191,7 +205,7 @@ class _ListPageState extends State<ListPage> {
     return Scaffold(
       backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
       appBar: topAppBar,
-      body: makeBody,
+      body: makeBottom,
       bottomNavigationBar: makeBottom,
     );
   }
@@ -259,7 +273,7 @@ void choiceAction(String choice){
     // code when buttons clicked to open another activity
     Share.share('Text');}
   else if(choice == Constant.Account){
-    print("Accounts Button Clicked");
+   
 
   }
   else if(choice==Constant.Share){
@@ -283,7 +297,7 @@ void choiceAction(String choice){
 //This functionality opens an external url link.
 
 _launchURL() async {
-  const url = 'https://stjohnkenya.org';
+  const url = 'https://www.google.com/maps/search/?api=1&query=Hospitals';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
@@ -337,7 +351,7 @@ _textMe() async {
 //Google Map Functionality with string Passed.
 
 
- _openMap() async {
+ _Amap() async {
     const googleUrl = 'https://www.google.com/maps/search/?api=1&query=Hospitals';
     if (await canLaunch(googleUrl)) {
       await launch(googleUrl);
