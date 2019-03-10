@@ -50,7 +50,10 @@ class _ListPageState extends State<ListPage> {
 
   @override
   Widget build(BuildContext context) {
-    
+
+
+
+   
     ListTile makeListTile(Lesson lesson) => ListTile(
           contentPadding:
               EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
@@ -121,6 +124,130 @@ class _ListPageState extends State<ListPage> {
           },
         );
 
+ListTile ambulance() => ListTile(
+          contentPadding:
+              EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+          leading: Container(
+            padding: EdgeInsets.only(right: 12.0),
+            decoration: new BoxDecoration(
+                border: new Border(
+                    right: new BorderSide(width: 1.0, color: Colors.white24))),
+           
+
+            child:
+             Icon(Icons.near_me, color: Colors.white),
+             
+  
+           
+          ),
+
+         
+          title: Text(
+          "Ambulance Call",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+
+          // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
+
+          subtitle: Row(
+            children: <Widget>[
+              Expanded(
+                  flex: 1,
+                  child: Container(
+                    // tag: 'hero',
+                    child: LinearProgressIndicator(
+                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
+                        value: 0.5,
+                        valueColor: AlwaysStoppedAnimation(Colors.green)),
+                  )),
+              Expanded(
+                flex: 4,
+                child: Padding(
+                    padding: EdgeInsets.only(left: 10.0),
+                    child: Text("Call 0703248870",
+                        style: TextStyle(color: Colors.white))),
+              )
+            ],
+          ),
+          trailing:
+              Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
+          onTap: () {
+           
+          //This if Statement determines what happens when the button/ card is clicked
+
+
+           
+            // Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //         builder: (context) => DetailPage(lesson: lesson)));
+          },
+        );
+
+
+ListTile makeListTile2() => ListTile(
+          contentPadding:
+              EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+          leading: Container(
+            padding: EdgeInsets.only(right: 12.0),
+            decoration: new BoxDecoration(
+                border: new Border(
+                    right: new BorderSide(width: 1.0, color: Colors.white24))),
+           
+
+            child:
+             Icon(Icons.local_car_wash, color: Colors.white),
+             
+  
+           
+          ),
+
+         
+          title: Text(
+          "Fire Emergency Cal",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+
+          // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
+
+          subtitle: Row(
+            children: <Widget>[
+              Expanded(
+                  flex: 1,
+                  child: Container(
+                    // tag: 'hero',
+                    child: LinearProgressIndicator(
+                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
+                        value: 0.5,
+                        valueColor: AlwaysStoppedAnimation(Colors.red)),
+                  )),
+              Expanded(
+                flex: 4,
+                child: Padding(
+                    padding: EdgeInsets.only(left: 10.0),
+                    child: Text("Request for a fire fighter",
+                        style: TextStyle(color: Colors.white))),
+              )
+            ],
+          ),
+          trailing:
+              Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
+          onTap: () {
+           
+          //This if Statement determines what happens when the button/ card is clicked
+
+
+           
+            // Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //         builder: (context) => DetailPage(lesson: lesson)));
+          },
+        );
+
+
+
+
     Card makeCard(Lesson lesson) => Card(
           elevation: 8.0,
           margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
@@ -131,6 +258,25 @@ class _ListPageState extends State<ListPage> {
         );
 
 
+
+    Card makeCard2() => Card(
+          elevation: 8.0,
+          margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+          child: Container(
+            decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+            child: ambulance(),
+          ),
+        );
+
+
+     Card makeCard3() => Card(
+          elevation: 8.0,
+          margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+          child: Container(
+            decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+            child: makeListTile2(),
+          ),
+        );
     final makeBody = Container(
       // decoration: BoxDecoration(color: Color.fromRGBO(58, 66, 86, 1.0)),
       child: 
@@ -203,9 +349,23 @@ class _ListPageState extends State<ListPage> {
     );
 
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
       appBar: topAppBar,
-      body: makeBottom,
+      body: ListView(
+        children: <Widget>[
+          makeCard2(),
+         makeCard3(),
+         makeCard2(),
+         makeCard3(),
+         makeCard2(),
+         makeCard3(),
+         makeCard2(),
+         makeCard3(),
+        ],
+      ),
+      
+   
       bottomNavigationBar: makeBottom,
     );
   }
