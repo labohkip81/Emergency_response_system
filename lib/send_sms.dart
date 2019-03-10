@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:flutter_sms/flutter_sms.dart';
+// import 'package:flutter_sms/flutter_sms.dart';
 
 void main() => runApp(new MyApp());
 
@@ -25,11 +25,11 @@ _controllerPeople = TextEditingController();
 _controllerMessage = TextEditingController();
 }
 
-void _sendSMS(String message, List<String> recipents) async {
-String _result =
-await FlutterSms.sendSMS(message: message, recipients: recipents);
-setState(() => _message = _result);
-}
+// void _sendSMS(String message, List<String> recipents) async {
+// String _result =
+// // await FlutterSms.sendSMS(message: message, recipients: recipents);
+// setState(() => _message = _result);
+// }
 
 Widget _phoneTile(String name) {
 return Padding(
@@ -143,7 +143,7 @@ if ((people == null || people.isEmpty) ||
 setState(() =>
 _message = "At Least 1 Person or Message Required");
 } else {
-_sendSMS(body, people);
+// _sendSMS(body, people);
 }
 },
 ),

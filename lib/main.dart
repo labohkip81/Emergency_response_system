@@ -2,12 +2,11 @@ import 'model/lesson.dart';
 import 'package:flutter/material.dart';
 import 'detail_page.dart';
 import './menu.dart';
-import 'package:share/share.dart';
 //The import below handles opening a new page webpage within the app
 
 
 //This package is used to load external urls
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(new MyApp());
 
@@ -101,13 +100,13 @@ class _ListPageState extends State<ListPage> {
 
             if(lesson.type=="ambulance"){
               //The call me function has been defined below the main. dart file
-              _callMe();
+              // _callMe();
             
               print(" Hey there you're calling an ambulance");
             }
             else 
             if(lesson.type=="Fire"){
-              _textMe();
+              // _textMe();
             }
             // Navigator.push(
             //     context,
@@ -151,7 +150,7 @@ class _ListPageState extends State<ListPage> {
             IconButton(
               icon: Icon(Icons.blur_on, color: Colors.white),
               onPressed: () {
-              _textMe();
+              // _textMe();
               },
             ),
             IconButton(
@@ -257,18 +256,11 @@ List getLessons() {
 void choiceAction(String choice){
   if(choice ==Constant.Settings){
     // code when buttons clicked to open another activity
-    Share.share('Text');}
-  else if(choice == Constant.Account){
+  //   Share.share('Text');}
+  // else if(choice == Constant.Account){
     print("Accounts Button Clicked");
 
-  }
-  else if(choice==Constant.Share){
-    Share.share("www.github.com/labohkip81/Emergency_response_system.git kindly visit to contribute");
-
-  }
-  else{
-    
-    _launchURL();
+  
   
 
  
@@ -282,50 +274,50 @@ void choiceAction(String choice){
 
 //This functionality opens an external url link.
 
-_launchURL() async {
-  const url = 'https://stjohnkenya.org';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
+// _launchURL() async {
+//   const url = 'https://stjohnkenya.org';
+//   if (await canLaunch(url)) {
+//     await launch(url);
+//   } else {
+//     throw 'Could not launch $url';
+//   }
+// }
 
 
 
 //This code opens phone and passes a phone number parameter when clicked.
-_callMe() async {
-    // Android
-    const uri = 'tel:+1 222 060 888';
-    if (await canLaunch(uri)) {
-      await launch(uri);
-    } else {
-      // iOS
-      const uri = 'tel:001-22-060-888';
-      if (await canLaunch(uri)) {
-        await launch(uri);
-      } else {
-        throw 'Could not launch $uri';
-      }
-    }
-  }
+// _callMe() async {
+//     // Android
+//     const uri = 'tel:+1 222 060 888';
+//     if (await canLaunch(uri)) {
+//       await launch(uri);
+//     } else {
+//       // iOS
+//       const uri = 'tel:001-22-060-888';
+//       if (await canLaunch(uri)) {
+//         await launch(uri);
+//       } else {
+//         throw 'Could not launch $uri';
+//       }
+//     }
+//   }
   
   //This code automatically sends sms to the user
 
-_textMe() async {
-    // Android
-    const uri = 'sms:+39 349 060 888';
-    if (await canLaunch(uri)) {
-      await launch(uri);
-    } else {
-      // iOS
-      const uri = 'sms:0039-222-060-888';
-      if (await canLaunch(uri)) {
-        await launch(uri);
-      } else {
-        throw 'Could not launch $uri';
-      }
-    }
+// _textMe() async {
+//     // Android
+//     const uri = 'sms:+39 349 060 888';
+//     if (await canLaunch(uri)) {
+//       await launch(uri);
+//     } else {
+//       // iOS
+      // const uri = 'sms:0039-222-060-888';
+      // if (await canLaunch(uri)) {
+      //   await launch(uri);
+      // } else {
+      //   throw 'Could not launch $uri';
+      // }
+    // }
 
 
 
@@ -337,12 +329,12 @@ _textMe() async {
 //Google Map Functionality with string Passed.
 
 
- _openMap() async {
-    const googleUrl = 'https://www.google.com/maps/search/?api=1&query=Hospitals';
-    if (await canLaunch(googleUrl)) {
-      await launch(googleUrl);
-    } else {
-      throw 'Could not open the map.';
-    }
-  }
-}
+//  _openMap() async {
+//     const googleUrl = 'https://www.google.com/maps/search/?api=1&query=Hospitals';
+//     if (await canLaunch(googleUrl)) {
+//       await launch(googleUrl);
+//     } else {
+//       throw 'Could not open the map.';
+//     }
+//   }
+
