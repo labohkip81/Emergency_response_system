@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'detail_page.dart';
 import './menu.dart';
 import './login.dart';
+import './sign_up.dart';
 //The import below handles opening a new page webpage within the app
 
 
@@ -21,6 +22,11 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
           primaryColor: Color.fromRGBO(58, 66, 86, 1.0), fontFamily: 'Raleway'),
       home: new ListPage(title: 'K-Dharura'),
+      routes: <String,WidgetBuilder>{
+        '/sign_up':(BuildContext) => SignUp(),
+        '/login':(BuildContext)=>FirstRoute()
+        
+      }
       // home: DetailPage(),
     );
   }
@@ -161,8 +167,7 @@ class _ListPageState extends State<ListPage> {
             IconButton(
               icon: Icon(Icons.account_box, color: Colors.white),
               onPressed: () {
-                Navigator.push(
-                  context, MaterialPageRoute(builder: (context)=> FirstRoute()));
+                Navigator.of(context).pushNamed('/login');
               },
             )
           ],

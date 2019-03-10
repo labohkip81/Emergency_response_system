@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './main.dart';
+import './sign_up.dart';
 
 void main() => runApp(FirstRoute());
 
@@ -9,6 +9,10 @@ class FirstRoute extends StatelessWidget {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       home: new MyHomePage(),
+      routes: <String,WidgetBuilder>{
+        '/sign_up':(BuildContext) => SignUp(),
+        '/login':(BuildContext)=>FirstRoute()
+      }
     );
   }
 }
@@ -169,7 +173,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(width: 5.0,),
                 
                 InkWell(
-                  onTap: (){},
+                  onTap: (){
+                    Navigator.of(context).pushNamed('/sign_up');
+                  },
                   child: Text('Register',
                   style:TextStyle(
                     fontWeight:FontWeight.bold,
