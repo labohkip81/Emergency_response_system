@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './login.dart';
 
 void main() => runApp(SignUp());
 
@@ -7,7 +8,8 @@ class SignUp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: new MyHomePage(),
+      home: new MyHomePage()
+        
     );
   }
 }
@@ -138,9 +140,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Colors.grey,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
                     onPressed: (){
-                      Navigator.of(context).pop();
+                      Navigator.push(context, MaterialPageRoute(builder:(context )=>FirstRoute()));
                     },
-                     child:Text('Go Back',
+                     child:Text('Go Back!',
                      style: TextStyle(
                        fontSize: 15.0,
                        fontWeight: FontWeight.bold,

@@ -174,7 +174,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 
                 InkWell(
                   onTap: (){
-                    Navigator.of(context).pushNamed('/sign_up');
+                   Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => SignUp(),
+                settings: RouteSettings(name: 'sign_up')),
+          );
                   },
                   child: Text('Register',
                   style:TextStyle(
