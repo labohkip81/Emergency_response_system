@@ -144,13 +144,41 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Center(child: ImageIcon(),)
+                        Center(child:
+                         ImageIcon(AssetImage('assets/google.png')),),
+                         SizedBox(width: 20.0,),
+                         Center(
+                           child: Text('Login using Google',
+                           style:TextStyle(fontWeight: FontWeight.bold)),
+                         )
                       ],
                     ),
                   ),
                 )
               ],
             ),
+          ),
+          SizedBox(height: 15.0,),
+          Row(
+            
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text('New to K-Dharura?',
+              style:TextStyle(
+                fontWeight:FontWeight.bold,)),
+                SizedBox(width: 5.0,),
+                
+                InkWell(
+                  onTap: (){},
+                  child: Text('Register',
+                  style:TextStyle(
+                    fontWeight:FontWeight.bold,
+                    color:Colors.green,
+                    decoration: TextDecoration.underline,
+                  )),
+
+                ),
+            ],
           )
         ],
       ),
