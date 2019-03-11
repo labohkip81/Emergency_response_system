@@ -142,7 +142,7 @@ ListTile ambulanceTile() => ListTile(
            
 
             child:
-             Icon(Icons.near_me, color: Colors.white),
+             Icon(Icons.blur_on, color: Colors.white),
              
   
            
@@ -171,13 +171,13 @@ ListTile ambulanceTile() => ListTile(
                 flex: 4,
                 child: Padding(
                     padding: EdgeInsets.only(left: 10.0),
-                    child: Text("Call 0703248870",
+                    child: Text("Request for an ambulance",
                         style: TextStyle(color: Colors.white))),
               )
             ],
           ),
           trailing:
-              Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
+              Icon(Icons.phone, color: Colors.white, size: 30.0),
           onTap: () {
            
           //This if Statement determines what happens when the button/ card is clicked
@@ -216,7 +216,7 @@ ListTile fireTile() => ListTile(
 
          
           title: Text(
-          "Fire Emergency Cal",
+          "Fire emergency",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
 
@@ -243,7 +243,7 @@ ListTile fireTile() => ListTile(
             ],
           ),
           trailing:
-              Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
+              Icon(Icons.phone, color: Colors.white, size: 30.0),
           onTap: () {
            
           //This if Statement determines what happens when the button/ card is clicked
@@ -270,7 +270,7 @@ ListTile fireTile() => ListTile(
            
 
             child:
-             Icon(Icons.local_car_wash, color: Colors.white),
+             Icon(Icons.lightbulb_outline, color: Colors.white),
              
   
            
@@ -278,7 +278,7 @@ ListTile fireTile() => ListTile(
 
          
           title: Text(
-          "Fire Emergency Cal",
+          "Police Emergency",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
 
@@ -293,19 +293,19 @@ ListTile fireTile() => ListTile(
                     child: LinearProgressIndicator(
                         backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
                         value: 0.5,
-                        valueColor: AlwaysStoppedAnimation(Colors.red)),
+                        valueColor: AlwaysStoppedAnimation(Colors.orange)),
                   )),
               Expanded(
                 flex: 4,
                 child: Padding(
                     padding: EdgeInsets.only(left: 10.0),
-                    child: Text("Request for a fire fighter",
+                    child: Text("Alert the police",
                         style: TextStyle(color: Colors.white))),
               )
             ],
           ),
           trailing:
-              Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
+              Icon(Icons.phone, color: Colors.white, size: 30.0),
           onTap: () {
            
           //This if Statement determines what happens when the button/ card is clicked
@@ -333,7 +333,7 @@ ListTile accidentTile() => ListTile(
            
 
             child:
-             Icon(Icons.local_car_wash, color: Colors.white),
+             Icon(Icons.beenhere, color: Colors.white),
              
   
            
@@ -341,7 +341,7 @@ ListTile accidentTile() => ListTile(
 
          
           title: Text(
-          "Fire Emergency Cal",
+          "Accident",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
 
@@ -362,13 +362,13 @@ ListTile accidentTile() => ListTile(
                 flex: 4,
                 child: Padding(
                     padding: EdgeInsets.only(left: 10.0),
-                    child: Text("Request for a fire fighter",
+                    child: Text("Report an accident",
                         style: TextStyle(color: Colors.white))),
               )
             ],
           ),
           trailing:
-              Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
+              Icon(Icons.email, color: Colors.white, size: 30.0),
           onTap: () {
            
           //This if Statement determines what happens when the button/ card is clicked
@@ -396,7 +396,7 @@ ListTile healthListTile() => ListTile(
            
 
             child:
-             Icon(Icons.local_car_wash, color: Colors.white),
+             Icon(Icons.supervisor_account, color: Colors.white, size: 40.0,),
              
   
            
@@ -404,7 +404,7 @@ ListTile healthListTile() => ListTile(
 
          
           title: Text(
-          "Fire Emergency Cal",
+          "Health ID",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
 
@@ -412,26 +412,20 @@ ListTile healthListTile() => ListTile(
 
           subtitle: Row(
             children: <Widget>[
-              Expanded(
-                  flex: 1,
-                  child: Container(
-                    // tag: 'hero',
-                    child: LinearProgressIndicator(
-                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-                        value: 0.5,
-                        valueColor: AlwaysStoppedAnimation(Colors.red)),
-                  )),
+    
+                
+                  
               Expanded(
                 flex: 4,
                 child: Padding(
-                    padding: EdgeInsets.only(left: 10.0),
-                    child: Text("Request for a fire fighter",
+                    padding: EdgeInsets.only(left: 0.0),
+                    child: Text("View Personal Health information",
                         style: TextStyle(color: Colors.white))),
               )
             ],
           ),
           trailing:
-              Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
+              Icon(Icons.account_circle, color: Colors.white, size: 30.0),
           onTap: () {
            
           //This if Statement determines what happens when the button/ card is clicked
@@ -461,7 +455,7 @@ ListTile panicListTile() => ListTile(
            
 
             child:
-             Icon(Icons.local_car_wash, color: Colors.white),
+             Icon(Icons.transfer_within_a_station, color: Colors.white),
              
   
            
@@ -469,7 +463,7 @@ ListTile panicListTile() => ListTile(
 
          
           title: Text(
-          "Fire Emergency Cal",
+          "Panic Button",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
 
@@ -477,26 +471,18 @@ ListTile panicListTile() => ListTile(
 
           subtitle: Row(
             children: <Widget>[
-              Expanded(
-                  flex: 1,
-                  child: Container(
-                    // tag: 'hero',
-                    child: LinearProgressIndicator(
-                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-                        value: 0.5,
-                        valueColor: AlwaysStoppedAnimation(Colors.red)),
-                  )),
+              
               Expanded(
                 flex: 4,
                 child: Padding(
-                    padding: EdgeInsets.only(left: 10.0),
-                    child: Text("Request for a fire fighter",
+                    padding: EdgeInsets.only(left: 0.0),
+                    child: Text("This button automatically sends a message to your close patners so they can take action.",
                         style: TextStyle(color: Colors.white))),
               )
             ],
           ),
           trailing:
-              Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
+              Icon(Icons.arrow_forward, color: Colors.white, size: 30.0),
           onTap: () {
            
           //This if Statement determines what happens when the button/ card is clicked
@@ -524,7 +510,7 @@ ListTile breakDownTile() => ListTile(
            
 
             child:
-             Icon(Icons.local_car_wash, color: Colors.white),
+             Icon(Icons.traffic, color: Colors.redAccent, size: 30.0,),
              
   
            
@@ -532,7 +518,7 @@ ListTile breakDownTile() => ListTile(
 
          
           title: Text(
-          "Fire Emergency Cal",
+          "Break Down Services",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
 
@@ -540,26 +526,18 @@ ListTile breakDownTile() => ListTile(
 
           subtitle: Row(
             children: <Widget>[
-              Expanded(
-                  flex: 1,
-                  child: Container(
-                    // tag: 'hero',
-                    child: LinearProgressIndicator(
-                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-                        value: 0.5,
-                        valueColor: AlwaysStoppedAnimation(Colors.red)),
-                  )),
+             
               Expanded(
                 flex: 4,
                 child: Padding(
-                    padding: EdgeInsets.only(left: 10.0),
-                    child: Text("Request for a fire fighter",
+                    padding: EdgeInsets.only(left: 0.0),
+                    child: Text("Request for Car Breakdown Service",
                         style: TextStyle(color: Colors.white))),
               )
             ],
           ),
           trailing:
-              Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
+              Icon(Icons.traffic, color: Colors.greenAccent, size: 30.0),
           onTap: () {
            
           //This if Statement determines what happens when the button/ card is clicked
@@ -590,7 +568,7 @@ ListTile firstAidListTile() => ListTile(
            
 
             child:
-             Icon(Icons.local_car_wash, color: Colors.white),
+             Icon(Icons.nature_people, color: Colors.white,size: 30.0,),
              
   
            
@@ -598,7 +576,7 @@ ListTile firstAidListTile() => ListTile(
 
          
           title: Text(
-          "Fire Emergency Cal",
+          "First Aid Procedures",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
 
@@ -606,20 +584,12 @@ ListTile firstAidListTile() => ListTile(
 
           subtitle: Row(
             children: <Widget>[
-              Expanded(
-                  flex: 1,
-                  child: Container(
-                    // tag: 'hero',
-                    child: LinearProgressIndicator(
-                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-                        value: 0.5,
-                        valueColor: AlwaysStoppedAnimation(Colors.red)),
-                  )),
+             
               Expanded(
                 flex: 4,
                 child: Padding(
-                    padding: EdgeInsets.only(left: 10.0),
-                    child: Text("Request for a fire fighter",
+                    padding: EdgeInsets.only(left: 0.0),
+                    child: Text("List Common First Aid procedures",
                         style: TextStyle(color: Colors.white))),
               )
             ],
@@ -656,7 +626,7 @@ ListTile aboutUSListTile() => ListTile(
            
 
             child:
-             Icon(Icons.local_car_wash, color: Colors.white),
+             Icon(Icons.people_outline, color: Colors.white, size: 30.0,),
              
   
            
@@ -664,7 +634,7 @@ ListTile aboutUSListTile() => ListTile(
 
          
           title: Text(
-          "Fire Emergency Cal",
+          "About K-Dharura Team",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
 
@@ -672,20 +642,12 @@ ListTile aboutUSListTile() => ListTile(
 
           subtitle: Row(
             children: <Widget>[
-              Expanded(
-                  flex: 1,
-                  child: Container(
-                    // tag: 'hero',
-                    child: LinearProgressIndicator(
-                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-                        value: 0.5,
-                        valueColor: AlwaysStoppedAnimation(Colors.red)),
-                  )),
+             
               Expanded(
                 flex: 4,
                 child: Padding(
-                    padding: EdgeInsets.only(left: 10.0),
-                    child: Text("Request for a fire fighter",
+                    padding: EdgeInsets.only(left: 0.0),
+                    child: Text("Read more Information About K-Hub",
                         style: TextStyle(color: Colors.white))),
               )
             ],
@@ -705,66 +667,7 @@ ListTile aboutUSListTile() => ListTile(
           },
         );
 
-//This listTile holds information for the  team Information
-ListTile teamListTile() => ListTile(
-          contentPadding:
-              EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-          leading: Container(
-            padding: EdgeInsets.only(right: 12.0),
-            decoration: new BoxDecoration(
-                border: new Border(
-                    right: new BorderSide(width: 1.0, color: Colors.white24))),
-           
 
-            child:
-             Icon(Icons.local_car_wash, color: Colors.white),
-             
-  
-           
-          ),
-
-         
-          title: Text(
-          "Fire Emergency Cal",
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-
-          // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
-
-          subtitle: Row(
-            children: <Widget>[
-              Expanded(
-                  flex: 1,
-                  child: Container(
-                    // tag: 'hero',
-                    child: LinearProgressIndicator(
-                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-                        value: 0.5,
-                        valueColor: AlwaysStoppedAnimation(Colors.red)),
-                  )),
-              Expanded(
-                flex: 4,
-                child: Padding(
-                    padding: EdgeInsets.only(left: 10.0),
-                    child: Text("Request for a fire fighter",
-                        style: TextStyle(color: Colors.white))),
-              )
-            ],
-          ),
-          trailing:
-              Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
-          onTap: () {
-           
-          //This if Statement determines what happens when the button/ card is clicked
-
-
-           
-            // Navigator.push(
-            //     context,
-            //     MaterialPageRoute(
-            //         builder: (context) => DetailPage(lesson: lesson)));
-          },
-        );
 
 
     Card makeCard(Lesson lesson) => Card(
@@ -888,16 +791,7 @@ Card aboutUSCard() => Card(
 
 
 
-//This is the Team cardView
 
-Card teamCard() => Card(
-          elevation: 8.0,
-          margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-          child: Container(
-            decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
-            child: teamListTile(),
-          ),
-        );
 
 
   //This was a makebody function that passed a list view but it was not implemented.
@@ -997,7 +891,7 @@ Card teamCard() => Card(
          breakDownCard(),
          firstAidCard(),
          aboutUSCard(),
-         teamCard(),
+         
 
          
 
