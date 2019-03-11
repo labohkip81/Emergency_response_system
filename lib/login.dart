@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Container(
                   padding: EdgeInsets.only(
-                    top: 120.0,
+                    top: 100.0,
                     left: 200.0,
                   ),
                   child: Text('.',

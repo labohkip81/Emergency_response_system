@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "637487956318",
+    "firebase_url": "https://k-dharura.firebaseio.com",
+    "project_id": "k-dharura",
+    "storage_bucket": "k-dharura.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637487956318:android:8ea76bf66ed684f4",
+        "android_client_info": {
+          "package_name": "protokol.com.kdharura"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "637487956318-26jv15smqp2iduu07earn6n8lblrc4fk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpznMvp-hZIzY-TbAm2sx1gWfxPiOJcRc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

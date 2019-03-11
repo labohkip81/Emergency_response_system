@@ -4,6 +4,8 @@ import 'detail_page.dart';
 import './menu.dart';
 import './login.dart';
 import './sign_up.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 //The import below handles opening a new page webpage within the app
 
 
@@ -13,6 +15,18 @@ import './sign_up.dart';
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
+  // final FirebaseAuth _auth=FirebaseAuth.instance;
+  // final GoogleSignIn googleSignIn = new GoogleSignIn();
+  // Future<FirebaseUser>_signIn()async{
+  //   GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
+  //   GoogleSignInAuthentication gSA =await googleSignInAccount.authentication;
+  //   FirebaseUser user = await _auth.signInWithEmailAndPassword(
+  //     print("User Name: ${user.displayName}")
+  //     return user
+
+  //   );
+    
+  // }
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -101,24 +115,10 @@ class _ListPageState extends State<ListPage> {
           trailing:
               Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
-           
-          //This if Statement determines what happens when the button/ card is clicked
-
-
-            if(lesson.type=="ambulance"){
-              //The call me function has been defined below the main. dart file
-              // _callMe();
-            
-              print(" Hey there you're calling an ambulance");
-            }
-            else 
-            if(lesson.type=="Fire"){
-              // _textMe();
-            }
-            // Navigator.push(
-            //     context,
-            //     MaterialPageRoute(
-            //         builder: (context) => DetailPage(lesson: lesson)));
+            Navigator.push(
+                 context,
+                MaterialPageRoute(
+                     builder: (context) => DetailPage(lesson: lesson)));
           },
         );
 
