@@ -386,6 +386,70 @@ ListTile healthListTile() => ListTile(
 
 
 
+//This ListTile defines the contents to be held by the message Card
+
+ListTile messageListTile() => ListTile(
+          contentPadding:
+              EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+          leading: Container(
+            padding: EdgeInsets.only(right: 12.0),
+            decoration: new BoxDecoration(
+                border: new Border(
+                    right: new BorderSide(width: 1.0, color: Colors.white24))),
+           
+
+            child:
+             Icon(Icons.local_car_wash, color: Colors.white),
+             
+  
+           
+          ),
+
+         
+          title: Text(
+          "Fire Emergency Cal",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+
+          // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
+
+          subtitle: Row(
+            children: <Widget>[
+              Expanded(
+                  flex: 1,
+                  child: Container(
+                    // tag: 'hero',
+                    child: LinearProgressIndicator(
+                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
+                        value: 0.5,
+                        valueColor: AlwaysStoppedAnimation(Colors.red)),
+                  )),
+              Expanded(
+                flex: 4,
+                child: Padding(
+                    padding: EdgeInsets.only(left: 10.0),
+                    child: Text("Request for a fire fighter",
+                        style: TextStyle(color: Colors.white))),
+              )
+            ],
+          ),
+          trailing:
+              Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
+          onTap: () {
+           
+          //This if Statement determines what happens when the button/ card is clicked
+
+
+           
+            // Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //         builder: (context) => DetailPage(lesson: lesson)));
+          },
+        );
+
+
+
 //This listTile defines the contents to be held in the Panic buttonCardView.
 
 
@@ -464,43 +528,108 @@ ListTile PanicListTile() => ListTile(
           ),
         );
 
-
-
-    Card makeCard2() => Card(
+//this is the ambulance cardView displayed on the homescreen
+    Card ambulanceCard() => Card(
           elevation: 8.0,
           margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
           child: Container(
             decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
-            child: ambulance(),
+            child: ambulanceTile(),
           ),
         );
 
 
-     Card makeCard3() => Card(
+//This is the fire CardView 
+
+
+    Card fireCard() => Card(
           elevation: 8.0,
           margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
           child: Container(
             decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
-            child: makeListTile2(),
+            child: fireTile(),
           ),
         );
-    final makeBody = Container(
-      // decoration: BoxDecoration(color: Color.fromRGBO(58, 66, 86, 1.0)),
-      child: 
+
+//This is the Police CardView
+
+     Card policeCard() => Card(
+          elevation: 8.0,
+          margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+          child: Container(
+            decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+            child: policeTile(),
+          ),
+        );
+
+
+//This is the healthID Card
+       Card healthCard() => Card(
+          elevation: 8.0,
+          margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+          child: Container(
+            decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+            child: healthListTile(),
+          ),
+        );
+
+
+
+//This is the messageCard when pressed initializes a message sending function
+
+
+    Card messageCard() => Card(
+          elevation: 8.0,
+          margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+          child: Container(
+            decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+            child: messageListTile(),
+          ),
+        );
+
+
+
+
+
+//This is the Panic Button CardView
+
+ Card panicCard() => Card(
+          elevation: 8.0,
+          margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+          child: Container(
+            decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+            child: PanicListTile(),
+          ),
+        );
+
+
+  //This was a makebody function that passed a list view but it was not implemented.
+
+
+
+  //.............................................................................................................
+    // final makeBody = Container(
+    //   // decoration: BoxDecoration(color: Color.fromRGBO(58, 66, 86, 1.0)),
+    //   child: 
       
       
       
-      ListView.builder(
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        itemCount: lessons.length,
-        itemBuilder: (BuildContext context, int index) {
+    //   ListView.builder(
+    //     scrollDirection: Axis.vertical,
+    //     shrinkWrap: true,
+    //     itemCount: lessons.length,
+    //     itemBuilder: (BuildContext context, int index) {
           
-          return makeCard(lessons[index]);
+    //       return Column(
+    //         children: <Widget>[
+    //           healthCard(),
+    //           policeCard()
+    //         ],
+    //       );
           
-        },
-      ),
-    );
+    //     },
+    //   ),
+    // );
 
     final makeBottom = Container(
       height: 55.0,
@@ -561,14 +690,12 @@ ListTile PanicListTile() => ListTile(
       appBar: topAppBar,
       body: ListView(
         children: <Widget>[
-          makeCard2(),
-         makeCard3(),
-         makeCard2(),
-         makeCard3(),
-         makeCard2(),
-         makeCard3(),
-         makeCard2(),
-         makeCard3(),
+         ambulanceCard(),
+         fireCard(),
+         policeCard(),
+         healthCard(),
+         
+
         ],
       ),
       
