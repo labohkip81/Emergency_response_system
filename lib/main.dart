@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 import 'detail_page.dart';
 import './main2.dart';
 import './menu.dart';
-import 'package:share/share.dart';
-import './send_sms.dart';
+
+import './login.dart';
+import './sign_up.dart';
+
 //The import below handles opening a new page webpage within the app
 
 
 //This package is used to load external urls
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(new MyApp());
 
@@ -23,6 +25,11 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
           primaryColor: Color.fromRGBO(58, 66, 86, 1.0), fontFamily: 'Raleway'),
       home: new ListPage(title: 'K-Dharura'),
+      routes: <String,WidgetBuilder>{
+        '/sign_up':(BuildContext) => SignUp(),
+        '/login':(BuildContext)=>FirstRoute()
+        
+      }
       // home: DetailPage(),
     );
   }
@@ -601,6 +608,7 @@ ListTile firstAidListTile() => ListTile(
           //This if Statement determines what happens when the button/ card is clicked
 
 
+
            
             // Navigator.push(
             //     context,
@@ -660,6 +668,7 @@ ListTile aboutUSListTile() => ListTile(
 
 
            
+
             // Navigator.push(
             //     context,
             //     MaterialPageRoute(
@@ -839,7 +848,9 @@ Card aboutUSCard() => Card(
             IconButton(
               icon: Icon(Icons.location_on, color: Colors.green),
               onPressed: () {
-              _callMe();
+
+              // _textMe();
+
               },
             ),
             IconButton(
@@ -847,8 +858,12 @@ Card aboutUSCard() => Card(
               onPressed: () {},
             ),
             IconButton(
+
               icon: Icon(Icons.account_circle, color: Colors.white),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed('/login');
+              },
+
             )
           ],
         ),
@@ -965,18 +980,13 @@ List getLessons() {
 void choiceAction(String choice){
   if(choice ==Constant.Settings){
     // code when buttons clicked to open another activity
-    Share.share('Text');}
-  else if(choice == Constant.Account){
-   
 
-  }
-  else if(choice==Constant.Share){
-    Share.share("www.github.com/labohkip81/Emergency_response_system.git kindly visit to contribute");
+  //   Share.share('Text');}
+  // else if(choice == Constant.Account){
+    print("Accounts Button Clicked");
 
-  }
-  else{
-    
-    _launchURL();
+
+  
   
 
  
@@ -990,50 +1000,51 @@ void choiceAction(String choice){
 
 //This functionality opens an external url link.
 
-_launchURL() async {
-  const url = 'https://www.google.com/maps/search/?api=1&query=Hospitals';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
+// _launchURL() async {
+//   const url = 'https://stjohnkenya.org';
+//   if (await canLaunch(url)) {
+//     await launch(url);
+//   } else {
+//     throw 'Could not launch $url';
+//   }
+// }
+
 
 
 
 //This code opens phone and passes a phone number parameter when clicked.
-_callMe() async {
-    // Android
-    const uri = 'tel:+1 222 060 888';
-    if (await canLaunch(uri)) {
-      await launch(uri);
-    } else {
-      // iOS
-      const uri = 'tel:001-22-060-888';
-      if (await canLaunch(uri)) {
-        await launch(uri);
-      } else {
-        throw 'Could not launch $uri';
-      }
-    }
-  }
+// _callMe() async {
+//     // Android
+//     const uri = 'tel:+1 222 060 888';
+//     if (await canLaunch(uri)) {
+//       await launch(uri);
+//     } else {
+//       // iOS
+//       const uri = 'tel:001-22-060-888';
+//       if (await canLaunch(uri)) {
+//         await launch(uri);
+//       } else {
+//         throw 'Could not launch $uri';
+//       }
+//     }
+//   }
   
   //This code automatically sends sms to the user
 
-_textMe() async {
-    // Android
-    const uri = 'sms:+39 349 060 888';
-    if (await canLaunch(uri)) {
-      await launch(uri);
-    } else {
-      // iOS
-      const uri = 'sms:0039-222-060-888';
-      if (await canLaunch(uri)) {
-        await launch(uri);
-      } else {
-        throw 'Could not launch $uri';
-      }
-    }
+// _textMe() async {
+//     // Android
+//     const uri = 'sms:+39 349 060 888';
+//     if (await canLaunch(uri)) {
+//       await launch(uri);
+//     } else {
+//       // iOS
+      // const uri = 'sms:0039-222-060-888';
+      // if (await canLaunch(uri)) {
+      //   await launch(uri);
+      // } else {
+      //   throw 'Could not launch $uri';
+      // }
+    // }
 
 
 
@@ -1045,12 +1056,14 @@ _textMe() async {
 //Google Map Functionality with string Passed.
 
 
- _Amap() async {
-    const googleUrl = 'https://www.google.com/maps/search/?api=1&query=Hospitals';
-    if (await canLaunch(googleUrl)) {
-      await launch(googleUrl);
-    } else {
-      throw 'Could not open the map.';
-    }
-  }
-}
+
+//  _openMap() async {
+//     const googleUrl = 'https://www.google.com/maps/search/?api=1&query=Hospitals';
+//     if (await canLaunch(googleUrl)) {
+//       await launch(googleUrl);
+//     } else {
+//       throw 'Could not open the map.';
+//     }
+//   }
+
+
