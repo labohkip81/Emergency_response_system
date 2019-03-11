@@ -124,7 +124,14 @@ class _ListPageState extends State<ListPage> {
           },
         );
 
-ListTile ambulance() => ListTile(
+
+
+//This defines the contents to be passed to the cardView Button.
+
+
+
+
+ListTile ambulanceTile() => ListTile(
           contentPadding:
               EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
           leading: Container(
@@ -184,8 +191,13 @@ ListTile ambulance() => ListTile(
           },
         );
 
+//This defines the content to be passed to the fire button
 
-ListTile makeListTile2() => ListTile(
+
+
+
+
+ListTile fireTile() => ListTile(
           contentPadding:
               EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
           leading: Container(
@@ -244,6 +256,201 @@ ListTile makeListTile2() => ListTile(
             //         builder: (context) => DetailPage(lesson: lesson)));
           },
         );
+
+  //This ListTile defines what happens when the Police cardView is clicked
+
+  ListTile policeTile() => ListTile(
+          contentPadding:
+              EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+          leading: Container(
+            padding: EdgeInsets.only(right: 12.0),
+            decoration: new BoxDecoration(
+                border: new Border(
+                    right: new BorderSide(width: 1.0, color: Colors.white24))),
+           
+
+            child:
+             Icon(Icons.local_car_wash, color: Colors.white),
+             
+  
+           
+          ),
+
+         
+          title: Text(
+          "Fire Emergency Cal",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+
+          // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
+
+          subtitle: Row(
+            children: <Widget>[
+              Expanded(
+                  flex: 1,
+                  child: Container(
+                    // tag: 'hero',
+                    child: LinearProgressIndicator(
+                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
+                        value: 0.5,
+                        valueColor: AlwaysStoppedAnimation(Colors.red)),
+                  )),
+              Expanded(
+                flex: 4,
+                child: Padding(
+                    padding: EdgeInsets.only(left: 10.0),
+                    child: Text("Request for a fire fighter",
+                        style: TextStyle(color: Colors.white))),
+              )
+            ],
+          ),
+          trailing:
+              Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
+          onTap: () {
+           
+          //This if Statement determines what happens when the button/ card is clicked
+
+
+           
+            // Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //         builder: (context) => DetailPage(lesson: lesson)));
+          },
+        );
+
+
+//This ListTile holds contents for the Health-Card
+
+
+ListTile healthListTile() => ListTile(
+          contentPadding:
+              EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+          leading: Container(
+            padding: EdgeInsets.only(right: 12.0),
+            decoration: new BoxDecoration(
+                border: new Border(
+                    right: new BorderSide(width: 1.0, color: Colors.white24))),
+           
+
+            child:
+             Icon(Icons.local_car_wash, color: Colors.white),
+             
+  
+           
+          ),
+
+         
+          title: Text(
+          "Fire Emergency Cal",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+
+          // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
+
+          subtitle: Row(
+            children: <Widget>[
+              Expanded(
+                  flex: 1,
+                  child: Container(
+                    // tag: 'hero',
+                    child: LinearProgressIndicator(
+                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
+                        value: 0.5,
+                        valueColor: AlwaysStoppedAnimation(Colors.red)),
+                  )),
+              Expanded(
+                flex: 4,
+                child: Padding(
+                    padding: EdgeInsets.only(left: 10.0),
+                    child: Text("Request for a fire fighter",
+                        style: TextStyle(color: Colors.white))),
+              )
+            ],
+          ),
+          trailing:
+              Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
+          onTap: () {
+           
+          //This if Statement determines what happens when the button/ card is clicked
+
+
+           
+            // Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //         builder: (context) => DetailPage(lesson: lesson)));
+          },
+        );
+
+
+
+
+//This listTile defines the contents to be held in the Panic buttonCardView.
+
+
+ListTile PanicListTile() => ListTile(
+          contentPadding:
+              EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+          leading: Container(
+            padding: EdgeInsets.only(right: 12.0),
+            decoration: new BoxDecoration(
+                border: new Border(
+                    right: new BorderSide(width: 1.0, color: Colors.white24))),
+           
+
+            child:
+             Icon(Icons.local_car_wash, color: Colors.white),
+             
+  
+           
+          ),
+
+         
+          title: Text(
+          "Fire Emergency Cal",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+
+          // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
+
+          subtitle: Row(
+            children: <Widget>[
+              Expanded(
+                  flex: 1,
+                  child: Container(
+                    // tag: 'hero',
+                    child: LinearProgressIndicator(
+                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
+                        value: 0.5,
+                        valueColor: AlwaysStoppedAnimation(Colors.red)),
+                  )),
+              Expanded(
+                flex: 4,
+                child: Padding(
+                    padding: EdgeInsets.only(left: 10.0),
+                    child: Text("Request for a fire fighter",
+                        style: TextStyle(color: Colors.white))),
+              )
+            ],
+          ),
+          trailing:
+              Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
+          onTap: () {
+           
+          //This if Statement determines what happens when the button/ card is clicked
+
+
+           
+            // Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //         builder: (context) => DetailPage(lesson: lesson)));
+          },
+        );
+
+
+
 
 
 
