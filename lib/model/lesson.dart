@@ -12,3 +12,4 @@ class Lesson {
   Lesson(
       {this.title, this.level, this.indicatorValue, this.price, this.content,this.type,});
 }
+
