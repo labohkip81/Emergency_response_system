@@ -202,7 +202,6 @@ final makeBottom = Container(
                     width: 200.0,
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color:Colors.white,
                         style: BorderStyle.solid,
                         width: 1.0,
                       ),
