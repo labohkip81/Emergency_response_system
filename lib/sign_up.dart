@@ -23,12 +23,58 @@ class _MyHomePageState extends State<MyHomePage> {
   String _password;
   String _email;
 
+
+
+
+// defines the bottom navigation bar;
+
+final makeBottom = Container(
+      height: 55.0,
+      child: BottomAppBar(
+        color: Color.fromRGBO(58, 66, 86, 1.0),
+        
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.camera_alt, color: Colors.white,),
+              onPressed: () {
+                
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.location_on, color: Colors.white),
+              onPressed: () {
+
+         
+
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.message, color: Colors.white),
+              onPressed: () {},
+            ),
+            IconButton(
+
+              icon: Icon(Icons.account_circle, color: Colors.white),
+              onPressed: () {
+               
+              },
+
+            )
+          ],
+        ),
+      ),
+    );
+
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      resizeToAvoidBottomPadding: false,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+       resizeToAvoidBottomPadding: false,
+      bottomNavigationBar: makeBottom,
+     
+      body: ListView(
         children: <Widget>[
           Container(
             child: Stack(
@@ -53,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(top: 35.0, left: 15.0),
+            padding: EdgeInsets.only(top: 35.0, left: 15.0,right: 15.0),
             child: Column(
               children: <Widget>[
                 
@@ -115,7 +161,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: TextField(
                     
                     decoration: InputDecoration(
-                      labelText: 'Sir Name',
+                      labelText: 'Surname',
                       labelStyle: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
@@ -147,28 +193,34 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 SizedBox(height: 20.0,),
-                Container( 
-                  child:RaisedButton(
-                    color: Colors.grey,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
-                    onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder:(context )=>FirstRoute()));
-                    },
-                     child:Text('Go Back!',
-                     style: TextStyle(
-                       fontSize: 15.0,
-                       fontWeight: FontWeight.bold,
-
-                     ),)
+              Container(
+                  height: 40.0,
+                  color: Colors.transparent,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color:Colors.white,
+                        style: BorderStyle.solid,
+                        width: 1.0,
+                      ),
+                      color: Colors.blueGrey,
+                      borderRadius: BorderRadius.circular(20.0)
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                         SizedBox(width: 20.0,),
+                         Center(
+                           child: Text('BACK',
+                           style:TextStyle(color:Colors.black,fontWeight:FontWeight.bold)),
+                         )
+                      ],
+                    ),
                   ),
-                  ),
-                  
-               
-                 
+                )
               ],
             ),
           ),
-          
          
         ],
       ),

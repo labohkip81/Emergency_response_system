@@ -529,6 +529,12 @@ ListTile breakDownTile() => ListTile(
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
 
+
+           trailing:
+              Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
+          onTap: () {}
+           
+
           // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
 
 
@@ -807,8 +813,7 @@ Card aboutUSCard() => Card(
     final makeBottom = Container(
       height: 55.0,
       child: BottomAppBar(
-        // color: Color.fromRGBO(58, 66, 86, 1.0),
-        color: Colors.blueGrey,
+       color: Color.fromRGBO(58, 66, 86, 1.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
@@ -819,7 +824,7 @@ Card aboutUSCard() => Card(
               },
             ),
             IconButton(
-              icon: Icon(Icons.location_on, color: Colors.green),
+              icon: Icon(Icons.location_on, color: Colors.white),
               onPressed: () {
 
               // _textMe();

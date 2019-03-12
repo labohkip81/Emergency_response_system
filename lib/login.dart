@@ -35,8 +35,8 @@ class _LoginPageState extends State<LoginPage> {
 final makeBottom = Container(
       height: 55.0,
       child: BottomAppBar(
-        // color: Color.fromRGBO(58, 66, 86, 1.0),
-        color: Colors.green,
+        color: Color.fromRGBO(58, 66, 86, 1.0),
+        
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
@@ -50,7 +50,7 @@ final makeBottom = Container(
               icon: Icon(Icons.location_on, color: Colors.white),
               onPressed: () {
 
-              // _textMe();
+         
 
               },
             ),
@@ -78,6 +78,7 @@ final makeBottom = Container(
       
     
     Scaffold(
+      backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
       bottomNavigationBar: makeBottom,
       resizeToAvoidBottomPadding: false,
       body: ListView(
@@ -91,9 +92,10 @@ final makeBottom = Container(
                   padding: EdgeInsets.only(
                     top: 70.0,
                     left: 15.0,
+                    
                   ),
                   child: Text('Hello',
-                      style: TextStyle(
+                      style: TextStyle(color: Colors.white,
                           fontSize: 80.0, fontWeight: FontWeight.bold)),
                 ),
                 Container(
@@ -102,7 +104,7 @@ final makeBottom = Container(
                     left: 15.0,
                   ),
                   child: Text('There',
-                      style: TextStyle(
+                      style: TextStyle(color: Colors.white,
                           fontSize: 80.0, fontWeight: FontWeight.bold)),
                 ),
                 Container(
@@ -120,7 +122,7 @@ final makeBottom = Container(
             ),
           ),
           Container(
-            padding: EdgeInsets.only(top: 35.0, left: 15.0),
+            padding: EdgeInsets.only(top: 35.0, left: 15.0,right: 15.0),
             child: Column(
               children: <Widget>[
                 
@@ -132,7 +134,7 @@ final makeBottom = Container(
                     labelText: 'EMAIL',
                     labelStyle: TextStyle(
                         fontWeight: FontWeight.bold, 
-                        color: Colors.grey
+                        color: Colors.white
                         ),
                         focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.green))
                   ),
@@ -151,7 +153,7 @@ final makeBottom = Container(
                     labelText: 'PASSWORD',
                     labelStyle: TextStyle(
                         fontWeight: FontWeight.bold, 
-                        color: Colors.grey
+                        color: Colors.white,
                         ),
                         focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.green))
                   ),
@@ -182,8 +184,8 @@ final makeBottom = Container(
                   height: 40.0,
                   child: Material(
                     borderRadius: BorderRadius.circular(20.0),
-                    shadowColor: Colors.greenAccent,
-                    color: Colors.green,
+                    shadowColor: Colors.transparent,
+                    color: Colors.blueGrey,
                     elevation: 7.0,
                     child: GestureDetector(
                       onTap: (){},
@@ -216,11 +218,12 @@ final makeBottom = Container(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Center(child:
-                         ImageIcon(AssetImage('assets/google.png')),),
+                        
+                         ImageIcon(AssetImage('assets/google.png'),color: Colors.white,),),
                          SizedBox(width: 20.0,),
                          Center(
                            child: Text('Login using Google',
-                           style:TextStyle(fontWeight: FontWeight.bold)),
+                           style:TextStyle(color:Colors.white,fontWeight:FontWeight.bold)),
                          )
                       ],
                     ),
@@ -236,6 +239,7 @@ final makeBottom = Container(
             children: <Widget>[
               Text('New to K-Dharura?',
               style:TextStyle(
+                color: Colors.white,
                 fontWeight:FontWeight.bold,)),
                 SizedBox(width: 5.0,),
                 
