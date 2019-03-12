@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './sign_up.dart';
 
+
 void main() => runApp(FirstRoute());
 
 class FirstRoute extends StatelessWidget {
@@ -28,13 +29,60 @@ class _LoginPageState extends State<LoginPage> {
   final GlobalKey<FormState>_formKey =GlobalKey<FormState>();
 
 
+
+// defines the bottom navigation bar;
+
+final makeBottom = Container(
+      height: 55.0,
+      child: BottomAppBar(
+        // color: Color.fromRGBO(58, 66, 86, 1.0),
+        color: Colors.green,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.camera_alt, color: Colors.white,),
+              onPressed: () {
+                
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.location_on, color: Colors.white),
+              onPressed: () {
+
+              // _textMe();
+
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.message, color: Colors.white),
+              onPressed: () {},
+            ),
+            IconButton(
+
+              icon: Icon(Icons.account_circle, color: Colors.white),
+              onPressed: () {
+               
+              },
+
+            )
+          ],
+        ),
+      ),
+    );
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return new 
+    
+      
+    
+    Scaffold(
+      bottomNavigationBar: makeBottom,
       resizeToAvoidBottomPadding: false,
-      body: Column(
+      body: ListView(
         key: _formKey,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        // crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
             child: Stack(
@@ -212,7 +260,9 @@ class _LoginPageState extends State<LoginPage> {
           )
         ],
       ),
+      
     );
+
     
   }
   void login (){
