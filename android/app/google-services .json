@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "637487956318",
-    "firebase_url": "https://k-dharura.firebaseio.com",
-    "project_id": "k-dharura",
-    "storage_bucket": "k-dharura.appspot.com"
+    "project_number": "645478315139",
+    "firebase_url": "https://emergency-app-39e4e.firebaseio.com",
+    "project_id": "emergency-app-39e4e",
+    "storage_bucket": "emergency-app-39e4e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:637487956318:android:8ea76bf66ed684f4",
+        "mobilesdk_app_id": "1:645478315139:android:eaaef657fbf691b3",
         "android_client_info": {
-          "package_name": "protokol.com.kdharura"
+          "package_name": "com.kdharura.protokode"
         }
       },
       "oauth_client": [
         {
-          "client_id": "637487956318-26jv15smqp2iduu07earn6n8lblrc4fk.apps.googleusercontent.com",
+          "client_id": "645478315139-kljgkjv3pb13setpdsn0rfmsfsdha986.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDpznMvp-hZIzY-TbAm2sx1gWfxPiOJcRc"
+          "current_key": "AIzaSyAYZjiviyUReQbNYoIE-RkoXMp-yTfqi5Y"
         }
       ],
       "services": {
