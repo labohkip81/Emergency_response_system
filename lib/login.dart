@@ -8,7 +8,7 @@ class FirstRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: new MyHomePage(),
+      home: new LoginPage(),
       routes: <String,WidgetBuilder>{
         '/sign_up':(BuildContext) => SignUp(),
         '/login':(BuildContext)=>FirstRoute()
@@ -17,22 +17,23 @@ class FirstRoute extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => new _MyHomePageState();
+  _LoginPageState createState() => new _LoginPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _LoginPageState extends State<LoginPage> {
   String _email;
   String _password;
+  final GlobalKey<FormState>_formKey =GlobalKey<FormState>();
 
-  var _validateAndSubmit;
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       resizeToAvoidBottomPadding: false,
       body: Column(
+        key: _formKey,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
@@ -137,7 +138,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Colors.green,
                     elevation: 7.0,
                     child: GestureDetector(
-                      onTap: _validateAndSubmit,
+                      onTap: (){},
                       child: Center(
                         child: Text(
                           'LOGIN',
@@ -212,5 +213,12 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     );
+    
+  }
+  void login (){
+    final formState=_formKey.currentState;
+    if(formState.validate()){
+      
+    }
   }
 }

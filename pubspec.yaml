@@ -17,7 +17,6 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
-  firebase_auth: ^0.6.6
   # url_launcher:
   # flutter_sms: ^0.0.3
   
