@@ -71,7 +71,8 @@ final makeBottom = Container(
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-       resizeToAvoidBottomPadding: false,
+      backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
+      resizeToAvoidBottomPadding: false,
       bottomNavigationBar: makeBottom,
      
       body: ListView(
@@ -85,7 +86,7 @@ final makeBottom = Container(
                     left: 15.0,
                   ),
                   child: Text('Sign Up',
-                      style: TextStyle(
+                      style: TextStyle(color: Colors.white,
                           fontSize: 80.0, fontWeight: FontWeight.bold)),
                 ),
                 Container(
@@ -110,7 +111,7 @@ final makeBottom = Container(
                     labelText: 'EMAIL',
                     labelStyle: TextStyle(
                         fontWeight: FontWeight.bold, 
-                        color: Colors.grey
+                        color: Colors.white
                         ),
                         focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.green))
                   ),
@@ -128,7 +129,7 @@ final makeBottom = Container(
                     labelText: 'PASSWORD',
                     labelStyle: TextStyle(
                         fontWeight: FontWeight.bold, 
-                        color: Colors.grey
+                        color: Colors.white
                         ),
                         focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.green))
                   ),
@@ -141,11 +142,11 @@ final makeBottom = Container(
                 Container(
                   child: TextField(
                     decoration: InputDecoration(
-                      labelText: 'First Name',
+                      labelText: 'FIRST NAME',
                       labelStyle: TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 15.0,
                         fontWeight: FontWeight.bold,
-                        color: Colors.grey,
+                        color: Colors.white,
                       ),
                       focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.green))
                     ),
@@ -161,11 +162,11 @@ final makeBottom = Container(
                   child: TextField(
                     
                     decoration: InputDecoration(
-                      labelText: 'Surname',
+                      labelText: 'SURNAME',
                       labelStyle: TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 15.0,
                         fontWeight: FontWeight.bold,
-                        color: Colors.grey,
+                        color: Colors.white,
                       ),
                       focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.green)),
                     ),
@@ -193,10 +194,13 @@ final makeBottom = Container(
                   ),
                 ),
                 SizedBox(height: 20.0,),
-              Container(
-                  height: 40.0,
-                  color: Colors.transparent,
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>FirstRoute()));
+                },
                   child: Container(
+                    height: 40.0,
+                    width: 200.0,
                     decoration: BoxDecoration(
                       border: Border.all(
                         color:Colors.white,
@@ -206,10 +210,9 @@ final makeBottom = Container(
                       color: Colors.blueGrey,
                       borderRadius: BorderRadius.circular(20.0)
                     ),
-                    child: Row(
+                    child: Row (
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                         SizedBox(width: 20.0,),
                          Center(
                            child: Text('BACK',
                            style:TextStyle(color:Colors.black,fontWeight:FontWeight.bold)),
