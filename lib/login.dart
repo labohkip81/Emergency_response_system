@@ -26,6 +26,8 @@ class _MyHomePageState extends State<MyHomePage> {
   String _email;
   String _password;
 
+  var _validateAndSubmit;
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -94,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 TextFormField(
                   obscureText: true,
                   maxLines: 1,
-                  maxLength: 8,
+                  maxLength: 10,
                   autofocus: false,
                   decoration: InputDecoration(
                     labelText: 'PASSWORD',
@@ -127,6 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 SizedBox(height: 40.0,),
                 Container(
+                  
                   height: 40.0,
                   child: Material(
                     borderRadius: BorderRadius.circular(20.0),
@@ -134,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Colors.green,
                     elevation: 7.0,
                     child: GestureDetector(
-                      onTap: (){},
+                      onTap: _validateAndSubmit,
                       child: Center(
                         child: Text(
                           'LOGIN',
