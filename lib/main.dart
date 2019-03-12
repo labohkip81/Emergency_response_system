@@ -1,11 +1,11 @@
 import 'model/lesson.dart';
 import 'package:flutter/material.dart';
-import 'detail_page.dart';
-import './main2.dart';
+
 import './menu.dart';
 
 import './login.dart';
 import './sign_up.dart';
+
 
 //The import below handles opening a new page webpage within the app
 
@@ -113,17 +113,17 @@ class _ListPageState extends State<ListPage> {
           //This if Statement determines what happens when the button/ card is clicked
 
 
-            if(lesson.type=="ambulance"){
-              //The call me function has been defined below the main. dart file
-              _callMe();
-              _textMe();
+            // if(lesson.type=="ambulance"){
+            //   //The call me function has been defined below the main. dart file
+            //   _callMe();
+            //   _textMe();
             
-              print(" Hey there you're calling an ambulance");
-            }
-            else 
-            if(lesson.type=="Fire"){
-              _launchURL();
-            }
+            //   print(" Hey there you're calling an ambulance");
+            // }
+            // else 
+            // if(lesson.type=="Fire"){
+            //   _launchURL();
+            // }
             // Navigator.push(
             //     context,
             //     MaterialPageRoute(
@@ -529,34 +529,23 @@ ListTile breakDownTile() => ListTile(
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
 
+
+           trailing:
+              Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
+          onTap: () {}
+           
+
           // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
 
-          subtitle: Row(
-            children: <Widget>[
-             
-              Expanded(
-                flex: 4,
-                child: Padding(
-                    padding: EdgeInsets.only(left: 0.0),
-                    child: Text("Request for Car Breakdown Service",
-                        style: TextStyle(color: Colors.white))),
-              )
-            ],
-          ),
-          trailing:
-              Icon(Icons.traffic, color: Colors.greenAccent, size: 30.0),
-          onTap: () {
-           
-          //This if Statement determines what happens when the button/ card is clicked
 
 
            
             // Navigator.push(
             //     context,
             //     MaterialPageRoute(
-            //         builder: (context) => DetailPage(lesson: lesson)));
-          },
-        );
+ ); //         builder: (context) => DetailPage(lesson: lesson)));
+          
+        
 
 
 
@@ -663,16 +652,6 @@ ListTile aboutUSListTile() => ListTile(
           trailing:
               Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
-           
-          //This if Statement determines what happens when the button/ card is clicked
-
-
-           
-
-            // Navigator.push(
-            //     context,
-            //     MaterialPageRoute(
-            //         builder: (context) => DetailPage(lesson: lesson)));
           },
         );
 
@@ -834,19 +813,18 @@ Card aboutUSCard() => Card(
     final makeBottom = Container(
       height: 55.0,
       child: BottomAppBar(
-        // color: Color.fromRGBO(58, 66, 86, 1.0),
-        color: Colors.blueGrey,
+       color: Color.fromRGBO(58, 66, 86, 1.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             IconButton(
               icon: Icon(Icons.camera_alt, color: Colors.white,),
               onPressed: () {
-                _launchURL();
+                
               },
             ),
             IconButton(
-              icon: Icon(Icons.location_on, color: Colors.green),
+              icon: Icon(Icons.location_on, color: Colors.white),
               onPressed: () {
 
               // _textMe();

@@ -20,12 +20,62 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String _password;
+  String _email;
+
+
+
+
+// defines the bottom navigation bar;
+
+final makeBottom = Container(
+      height: 55.0,
+      child: BottomAppBar(
+        color: Color.fromRGBO(58, 66, 86, 1.0),
+        
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.camera_alt, color: Colors.white,),
+              onPressed: () {
+                
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.location_on, color: Colors.white),
+              onPressed: () {
+
+         
+
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.message, color: Colors.white),
+              onPressed: () {},
+            ),
+            IconButton(
+
+              icon: Icon(Icons.account_circle, color: Colors.white),
+              onPressed: () {
+               
+              },
+
+            )
+          ],
+        ),
+      ),
+    );
+
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
       resizeToAvoidBottomPadding: false,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      bottomNavigationBar: makeBottom,
+     
+      body: ListView(
         children: <Widget>[
           Container(
             child: Stack(
@@ -36,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     left: 15.0,
                   ),
                   child: Text('Sign Up',
-                      style: TextStyle(
+                      style: TextStyle(color: Colors.white,
                           fontSize: 80.0, fontWeight: FontWeight.bold)),
                 ),
                 Container(
@@ -50,33 +100,41 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(top: 35.0, left: 15.0),
+            padding: EdgeInsets.only(top: 35.0, left: 15.0,right: 15.0),
             child: Column(
               children: <Widget>[
                 
-                TextField(
+                TextFormField(
+                  autofocus: false,
+                  keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     labelText: 'EMAIL',
                     labelStyle: TextStyle(
                         fontWeight: FontWeight.bold, 
-                        color: Colors.grey
+                        color: Colors.white
                         ),
                         focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.green))
                   ),
+                  validator:(value)=>value.isEmpty ? "Email can\ 't be empty":null,
+                  onSaved: (value)=>_email=value,
                 ),
                 SizedBox(
                   height: 10.0,
                 ),
-                TextField(
+                TextFormField(
+                  maxLength: 10,
+                  obscureText: true,
+                  autofocus: false,
                   decoration: InputDecoration(
                     labelText: 'PASSWORD',
                     labelStyle: TextStyle(
                         fontWeight: FontWeight.bold, 
-                        color: Colors.grey
+                        color: Colors.white
                         ),
                         focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.green))
                   ),
-                  obscureText: true,
+                 validator:(value)=> value.isEmpty ? "Password can\'t be empty":null,
+                  onSaved: (value)=>_password=value,
                 ),
                 SizedBox(
                   height: 10.0,
@@ -84,11 +142,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 Container(
                   child: TextField(
                     decoration: InputDecoration(
-                      labelText: 'First Name',
+                      labelText: 'FIRST NAME',
                       labelStyle: TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 15.0,
                         fontWeight: FontWeight.bold,
-                        color: Colors.grey,
+                        color: Colors.white,
                       ),
                       focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.green))
                     ),
@@ -102,12 +160,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 10.0,),
                 Container(
                   child: TextField(
+                    
                     decoration: InputDecoration(
-                      labelText: 'Sir Name',
+                      labelText: 'SURNAME',
                       labelStyle: TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 15.0,
                         fontWeight: FontWeight.bold,
-                        color: Colors.grey,
+                        color: Colors.white,
                       ),
                       focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.green)),
                     ),
@@ -135,23 +194,33 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 SizedBox(height: 20.0,),
-                Container( 
-                  child:RaisedButton(
-                    color: Colors.grey,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
-                    onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder:(context )=>FirstRoute()));
-                    },
-                     child:Text('Go Back!',
-                     style: TextStyle(
-                       fontSize: 15.0,
-                       fontWeight: FontWeight.bold,
-
-                     ),)
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>FirstRoute()));
+                },
+                  child: Container(
+                    height: 40.0,
+                    width: 200.0,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color:Colors.white,
+                        style: BorderStyle.solid,
+                        width: 1.0,
+                      ),
+                      color: Colors.blueGrey,
+                      borderRadius: BorderRadius.circular(20.0)
+                    ),
+                    child: Row (
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                         Center(
+                           child: Text('BACK',
+                           style:TextStyle(color:Colors.black,fontWeight:FontWeight.bold)),
+                         )
+                      ],
+                    ),
                   ),
-                  )
-               
-                 
+                )
               ],
             ),
           ),
