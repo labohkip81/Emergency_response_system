@@ -20,6 +20,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String _password;
+  String _email;
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -54,7 +57,9 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               children: <Widget>[
                 
-                TextField(
+                TextFormField(
+                  autofocus: false,
+                  keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     labelText: 'EMAIL',
                     labelStyle: TextStyle(
@@ -63,11 +68,16 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.green))
                   ),
+                  validator:(value)=>value.isEmpty ? "Email can\ 't be empty":null,
+                  onSaved: (value)=>_email=value,
                 ),
                 SizedBox(
                   height: 10.0,
                 ),
-                TextField(
+                TextFormField(
+                  maxLength: 10,
+                  obscureText: true,
+                  autofocus: false,
                   decoration: InputDecoration(
                     labelText: 'PASSWORD',
                     labelStyle: TextStyle(
@@ -76,7 +86,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.green))
                   ),
-                  obscureText: true,
+                 validator:(value)=> value.isEmpty ? "Password can\'t be empty":null,
+                  onSaved: (value)=>_password=value,
                 ),
                 SizedBox(
                   height: 10.0,
@@ -102,6 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 10.0,),
                 Container(
                   child: TextField(
+                    
                     decoration: InputDecoration(
                       labelText: 'Sir Name',
                       labelStyle: TextStyle(
