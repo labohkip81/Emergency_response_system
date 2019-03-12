@@ -1,13 +1,10 @@
 import 'model/lesson.dart';
 import 'package:flutter/material.dart';
-import 'detail_page.dart';
-import './main2.dart';
+
 import './menu.dart';
 
 import './login.dart';
 import './sign_up.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 
 //The import below handles opening a new page webpage within the app

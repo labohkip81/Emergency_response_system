@@ -69,7 +69,8 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: EdgeInsets.only(top: 35.0, left: 15.0),
             child: Column(
               children: <Widget>[
-                TextField(
+                
+                TextFormField(
                   decoration: InputDecoration(
                     labelText: 'EMAIL',
                     labelStyle: TextStyle(
