@@ -23,6 +23,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String _email;
+  String _password;
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -71,6 +74,9 @@ class _MyHomePageState extends State<MyHomePage> {
               children: <Widget>[
                 
                 TextFormField(
+                  maxLines: 1,
+                  keyboardType: TextInputType.emailAddress,
+                  autofocus: false,
                   decoration: InputDecoration(
                     labelText: 'EMAIL',
                     labelStyle: TextStyle(
@@ -79,11 +85,17 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.green))
                   ),
+                   validator:(value)=>value.isEmpty ? "Email can\ 't be empty":null,
+                   onSaved: (value)=>_email=value,
                 ),
                 SizedBox(
                   height: 20.0,
                 ),
-                TextField(
+                TextFormField(
+                  obscureText: true,
+                  maxLines: 1,
+                  maxLength: 8,
+                  autofocus: false,
                   decoration: InputDecoration(
                     labelText: 'PASSWORD',
                     labelStyle: TextStyle(
@@ -92,7 +104,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.green))
                   ),
-                  obscureText: true,
+                  validator:(value)=> value.isEmpty ? "Password can\'t be empty":null,
+                  onSaved: (value)=>_password=value,
+              
                 ),
                 SizedBox(
                   height: 5.0,
