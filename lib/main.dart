@@ -482,7 +482,7 @@ ListTile panicListTile() => ListTile(
             ],
           ),
           trailing:
-              Icon(Icons.arrow_forward, color: Colors.white, size: 30.0),
+              Icon(Icons.arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
            
           //This if Statement determines what happens when the button/ card is clicked
@@ -537,7 +537,7 @@ ListTile breakDownTile() => ListTile(
             ],
           ),
           trailing:
-              Icon(Icons.traffic, color: Colors.greenAccent, size: 30.0),
+              Icon(Icons.arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
            
           //This if Statement determines what happens when the button/ card is clicked
@@ -595,7 +595,7 @@ ListTile firstAidListTile() => ListTile(
             ],
           ),
           trailing:
-              Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
+              Icon(Icons.arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
            
           //This if Statement determines what happens when the button/ card is clicked
@@ -653,7 +653,7 @@ ListTile aboutUSListTile() => ListTile(
             ],
           ),
           trailing:
-              Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
+              Icon(Icons.arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
            
           //This if Statement determines what happens when the button/ card is clicked
@@ -837,18 +837,22 @@ Card aboutUSCard() => Card(
               },
             ),
             IconButton(
-              icon: Icon(Icons.location_on, color: Colors.green),
+              icon: Icon(Icons.location_on, color: Colors.white),
               onPressed: () {
               _callMe();
               },
             ),
             IconButton(
               icon: Icon(Icons.message, color: Colors.white),
-              onPressed: () {},
+              onPressed: () {
+                _textMe();
+              },
             ),
             IconButton(
               icon: Icon(Icons.account_circle, color: Colors.white),
-              onPressed: () {},
+              onPressed: () {
+
+              },
             )
           ],
         ),
