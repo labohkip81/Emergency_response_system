@@ -181,7 +181,9 @@ final makeBottom = Container(
                     color: Colors.green,
                     elevation: 7.0,
                     child: GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                     
+                      },
                       child: Center(
                         child: Text(
                           'Sign Up',

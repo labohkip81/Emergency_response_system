@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import './sign_up.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 
 void main() => runApp(FirstRoute());
 
@@ -188,7 +188,15 @@ final makeBottom = Container(
                     color: Colors.blueGrey,
                     elevation: 7.0,
                     child: GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                           FirebaseAuth.instance.createUserWithEmailAndPassword(
+                          email: _email, password: _password
+                        ).then((signedInUser){
+
+                        }).catchError((e){
+                          print(e);
+                        });
+                      },
                       child: Center(
                         child: Text(
                           'LOGIN',
