@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import './sign_up.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import './services/usermanagement.dart';
+
 
 void main() => runApp(FirstRoute());
 
@@ -192,7 +194,7 @@ final makeBottom = Container(
                            FirebaseAuth.instance.createUserWithEmailAndPassword(
                           email: _email, password: _password
                         ).then((signedInUser){
-
+                          UserManagement().storeNewUser(signedInUser,context)''
                         }).catchError((e){
                           print(e);
                         });
