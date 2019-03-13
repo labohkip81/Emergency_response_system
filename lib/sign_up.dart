@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import './services/usermanagement.dart';
 void main() => runApp(SignUp());
 
 class SignUp extends StatelessWidget {
@@ -182,6 +183,13 @@ final makeBottom = Container(
                     elevation: 7.0,
                     child: GestureDetector(
                       onTap: (){
+                             FirebaseAuth.instance.createUserWithEmailAndPassword(
+                          email: _email, password: _password
+                        ).then((signedInUser){
+                          UserManagement().storeNewUser(signedInUser,context);
+                        }).catchError((e){
+                          print(e);
+                        });
                      
                       },
                       child: Center(

@@ -191,13 +191,7 @@ final makeBottom = Container(
                     elevation: 7.0,
                     child: GestureDetector(
                       onTap: (){
-                           FirebaseAuth.instance.createUserWithEmailAndPassword(
-                          email: _email, password: _password
-                        ).then((signedInUser){
-                          UserManagement().storeNewUser(signedInUser,context)''
-                        }).catchError((e){
-                          print(e);
-                        });
+                      
                       },
                       child: Center(
                         child: Text(
