@@ -6,6 +6,7 @@ import './main2.dart';
 import './menu.dart';
 import 'package:share/share.dart';
 import './send_sms.dart';
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 //This import handles the sms feature
 import 'package:flutter_sms/flutter_sms.dart';
 //The import below handles opening a new page webpage within the app
@@ -843,14 +844,15 @@ Card aboutUSCard() => Card(
             IconButton(
               icon: Icon(Icons.camera_alt, color: Colors.white,),
               onPressed: () {
-                _launchURL();
+                
               },
             ),
+            //This code will open map with a parameter passed
             IconButton(
               icon: Icon(Icons.location_on, color: Colors.white),
               onPressed: () {
-              _callMe();
-              print("message sent");
+              
+              
               },
             ),
 
@@ -1008,7 +1010,7 @@ void choiceAction(String choice){
 //This functionality opens an external url link.
 
 _launchURL() async {
-  const url = 'https://www.google.com/maps/search/?api=1&query=Hospitals';
+  const url = 'https://www.google.com/maps/search/?api=1&query=Police Stations';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
