@@ -1,14 +1,17 @@
 import 'model/lesson.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'detail_page.dart';
 import './main2.dart';
 import './menu.dart';
 import 'package:share/share.dart';
 import './send_sms.dart';
+//This import handles the sms feature
+import 'package:flutter_sms/flutter_sms.dart';
 //The import below handles opening a new page webpage within the app
 
 
-//This package is used to load external urls
+//This package is used to load external urlsfl
 import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(new MyApp());
@@ -48,9 +51,16 @@ class _ListPageState extends State<ListPage> {
     super.initState();
   }
 
+ String _message = "";
+
+void _sendSMS(String message, List<String> recipents) async {
+String _result =
+await FlutterSms.sendSMS(message: message, recipients: recipents);
+setState(() => _message = _result);
+}
+
   @override
   Widget build(BuildContext context) {
-
 
 
    
@@ -182,7 +192,7 @@ ListTile ambulanceTile() => ListTile(
            
           //This if Statement determines what happens when the button/ card is clicked
 
-
+           _callMe();
            
             // Navigator.push(
             //     context,
@@ -247,7 +257,7 @@ ListTile fireTile() => ListTile(
           onTap: () {
            
           //This if Statement determines what happens when the button/ card is clicked
-
+               _callMe();
 
            
             // Navigator.push(
@@ -311,7 +321,7 @@ ListTile fireTile() => ListTile(
           //This if Statement determines what happens when the button/ card is clicked
 
 
-           
+           _callMe();
             // Navigator.push(
             //     context,
             //     MaterialPageRoute(
@@ -840,12 +850,15 @@ Card aboutUSCard() => Card(
               icon: Icon(Icons.location_on, color: Colors.white),
               onPressed: () {
               _callMe();
+              print("message sent");
               },
             ),
+
+            //
             IconButton(
-              icon: Icon(Icons.message, color: Colors.white),
+              icon: Icon(Icons.mail, color: Colors.white),
               onPressed: () {
-                _textMe();
+                _sendSMS("Here is a test Message", ["0703248870", "0701203405"]);
               },
             ),
             IconButton(
@@ -1008,7 +1021,7 @@ _launchURL() async {
 //This code opens phone and passes a phone number parameter when clicked.
 _callMe() async {
     // Android
-    const uri = 'tel:+1 222 060 888';
+    const uri = 'tel:07032248870';
     if (await canLaunch(uri)) {
       await launch(uri);
     } else {
