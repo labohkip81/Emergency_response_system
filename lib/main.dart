@@ -1,14 +1,21 @@
 import 'model/lesson.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'detail_page.dart';
 import './main2.dart';
 import './menu.dart';
+import './about.dart';
 import 'package:share/share.dart';
+import './first_aid.dart';
+import './health_id.dart';
 import './send_sms.dart';
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+//This import handles the sms feature
+import 'package:flutter_sms/flutter_sms.dart';
 //The import below handles opening a new page webpage within the app
 
 
-//This package is used to load external urls
+//This package is used to load external urlsfl
 import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(new MyApp());
@@ -48,9 +55,16 @@ class _ListPageState extends State<ListPage> {
     super.initState();
   }
 
+ String _message = "";
+
+void _sendSMS(String message, List<String> recipents) async {
+String _result =
+await FlutterSms.sendSMS(message: message, recipients: recipents);
+setState(() => _message = _result);
+}
+
   @override
   Widget build(BuildContext context) {
-
 
 
    
@@ -126,6 +140,82 @@ class _ListPageState extends State<ListPage> {
 
 
 
+
+
+
+//This code snippet should be ignored.
+Dialog errorDialog = Dialog(
+  
+  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)), //this right here
+  child: Container(
+    height: 300.0,
+    width: 300.0,
+
+    child: ListView(
+      
+      children: <Widget>[
+
+
+       FlatButton(onPressed: (){
+        
+        },
+            child: Text('Select Location', style: TextStyle(color: Colors.red, fontSize: 18.0),)),
+            
+        
+        FlatButton(onPressed: (){
+          _launchURL();
+        },
+            child: Text('Hospitals', style: TextStyle(color: Colors.purple, fontSize: 18.0),)),
+            
+        // Padding(
+        //   padding:  EdgeInsets.all(15.0),
+        //   child: Text('Cool', style: TextStyle(color: Colors.red),),
+        // ),
+        Padding(padding: EdgeInsets.only(top: 20.0)),
+
+        FlatButton(onPressed: (){
+          _launchURL();
+        },
+            child: Text('Police Stations', style: TextStyle(color: Colors.purple, fontSize: 18.0),)),
+
+       Padding(padding: EdgeInsets.only(top: 20.0)),
+
+      FlatButton(onPressed: (){
+          _launchURL();
+        },
+            child: Text('Fire Stations', style: TextStyle(color: Colors.purple, fontSize: 18.0),)),
+
+            Padding(padding: EdgeInsets.only(top: 20.0)),
+
+            FlatButton(onPressed: (){
+          _launchURL();
+        },
+            child: Text('Hospitals', style: TextStyle(color: Colors.purple, fontSize: 18.0),)),
+
+
+       Padding(padding: EdgeInsets.only(top: 20.0)),
+
+
+            FlatButton(onPressed: (){
+          _launchURL();
+        },
+            child: Text('Chemist Shops', style: TextStyle(color: Colors.purple, fontSize: 18.0),)),
+
+        
+     
+
+        
+      ],
+    ),
+  ),
+);
+
+
+
+
+
+//Kindly ignore the code above and do not delete it. it implements button
+
 //This defines the contents to be passed to the cardView Button.
 
 
@@ -182,7 +272,7 @@ ListTile ambulanceTile() => ListTile(
            
           //This if Statement determines what happens when the button/ card is clicked
 
-
+           _callMe();
            
             // Navigator.push(
             //     context,
@@ -247,7 +337,7 @@ ListTile fireTile() => ListTile(
           onTap: () {
            
           //This if Statement determines what happens when the button/ card is clicked
-
+               _callMe();
 
            
             // Navigator.push(
@@ -311,7 +401,7 @@ ListTile fireTile() => ListTile(
           //This if Statement determines what happens when the button/ card is clicked
 
 
-           
+           _callMe();
             // Navigator.push(
             //     context,
             //     MaterialPageRoute(
@@ -427,11 +517,7 @@ ListTile healthListTile() => ListTile(
           trailing:
               Icon(Icons.account_circle, color: Colors.white, size: 30.0),
           onTap: () {
-           
-          //This if Statement determines what happens when the button/ card is clicked
-
-
-           
+            Navigator.push(context,MaterialPageRoute(builder: (context)=>HealthId()));
             // Navigator.push(
             //     context,
             //     MaterialPageRoute(
@@ -597,11 +683,7 @@ ListTile firstAidListTile() => ListTile(
           trailing:
               Icon(Icons.arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
-           
-          //This if Statement determines what happens when the button/ card is clicked
-
-
-           
+            Navigator.push(context,MaterialPageRoute(builder: (context)=>FirstAid()));
             // Navigator.push(
             //     context,
             //     MaterialPageRoute(
@@ -655,10 +737,7 @@ ListTile aboutUSListTile() => ListTile(
           trailing:
               Icon(Icons.arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
-           
-          //This if Statement determines what happens when the button/ card is clicked
-
-
+            Navigator.push(context,MaterialPageRoute(builder: (context)=>About()));
            
             // Navigator.push(
             //     context,
@@ -833,19 +912,34 @@ Card aboutUSCard() => Card(
             IconButton(
               icon: Icon(Icons.camera_alt, color: Colors.white,),
               onPressed: () {
-                _launchURL();
+                
               },
             ),
+            //This code will open map with a parameter passed
             IconButton(
               icon: Icon(Icons.location_on, color: Colors.white),
               onPressed: () {
-              _callMe();
+
+
+
+         showDialog(context: context, builder: (BuildContext context) => errorDialog);
+              
+    //         showDialog(
+        
+    //     context: context,
+    //     builder: (_) => new AlertDialog(
+    //         title: new Text("Dialog Title"),
+    //         content: new Text("This is my content"),
+    //     )
+    // );
               },
             ),
+
+            //
             IconButton(
               icon: Icon(Icons.message, color: Colors.white),
               onPressed: () {
-                _textMe();
+                _sendSMS("Here is a test Message", ["0703248870", "0701203405"]);
               },
             ),
             IconButton(
@@ -995,7 +1089,7 @@ void choiceAction(String choice){
 //This functionality opens an external url link.
 
 _launchURL() async {
-  const url = 'https://www.google.com/maps/search/?api=1&query=Hospitals';
+  const url = 'https://www.google.com/maps/search/?api=1&query=Police Stations';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
@@ -1008,7 +1102,7 @@ _launchURL() async {
 //This code opens phone and passes a phone number parameter when clicked.
 _callMe() async {
     // Android
-    const uri = 'tel:+1 222 060 888';
+    const uri = 'tel:07032248870';
     if (await canLaunch(uri)) {
       await launch(uri);
     } else {
@@ -1058,3 +1152,6 @@ _textMe() async {
     }
   }
 }
+
+
+
