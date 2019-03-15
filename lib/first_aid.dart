@@ -12,7 +12,7 @@ class FirstAid extends StatelessWidget {
     return WebviewScaffold(
       url: "http://www.sja.org.uk/sja/first-aid-advice.aspx",
       appBar: new AppBar(
-title: const Text('Widget webView'),
+title: const Text('First Aid'),
       ),
 withZoom: true,
 withLocalStorage: true,

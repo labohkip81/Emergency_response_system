@@ -1,6 +1,7 @@
 import 'model/lesson.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import './url.dart';
 import 'detail_page.dart';
 import './main2.dart';
 import './menu.dart';
@@ -844,7 +845,13 @@ Card aboutUSCard() => Card(
               icon: Icon(Icons.location_on, color: Colors.white),
               onPressed: () {
               
-              
+            showDialog(
+        context: context,
+        builder: (_) => new AlertDialog(
+            title: new Text("Dialog Title"),
+            content: new Text("This is my content"),
+        )
+    );
               },
             ),
 
@@ -1065,3 +1072,5 @@ _textMe() async {
     }
   }
 }
+
+

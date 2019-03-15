@@ -11,7 +11,7 @@ class About extends StatelessWidget {
    return WebviewScaffold(
       url: "https://k-dharura.netlify.com",
       appBar: new AppBar(
-title: const Text('Widget webView'),
+title: const Text('About K-Dharura'),
       ),
 withZoom: true,
 withLocalStorage: true,
