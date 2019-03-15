@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import './login.dart';
-
 void main() => runApp(SignUp());
 
 class SignUp extends StatelessWidget {
@@ -178,11 +177,19 @@ final makeBottom = Container(
                   height: 40.0,
                   child: Material(
                     borderRadius: BorderRadius.circular(20.0),
-                    shadowColor: Colors.greenAccent,
                     color: Colors.green,
                     elevation: 7.0,
                     child: GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                        //   //    FirebaseAuth.instance.createUserWithEmailAndPassword(
+                        //   // email: _email, password: _password
+                        // ).then((signedInUser){
+                        //   UserManagement().storeNewUser(signedInUser,context);
+                        // }).catchError((e){
+                        //   print(e);
+                        // });
+                     
+                      },
                       child: Center(
                         child: Text(
                           'Sign Up',
@@ -203,7 +210,6 @@ final makeBottom = Container(
                     width: 200.0,
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color:Colors.white,
                         style: BorderStyle.solid,
                         width: 1.0,
                       ),
@@ -215,7 +221,7 @@ final makeBottom = Container(
                       children: <Widget>[
                          Center(
                            child: Text('BACK',
-                           style:TextStyle(color:Colors.black,fontWeight:FontWeight.bold)),
+                           style:TextStyle(color:Colors.white,fontWeight:FontWeight.bold)),
                          )
                       ],
                     ),

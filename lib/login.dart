@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './sign_up.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 
 
 void main() => runApp(FirstRoute());
@@ -26,7 +27,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   String _email;
   String _password;
-  final GlobalKey<FormState>_formKey =GlobalKey<FormState>();
 
 
 
@@ -82,7 +82,6 @@ final makeBottom = Container(
       bottomNavigationBar: makeBottom,
       resizeToAvoidBottomPadding: false,
       body: ListView(
-        key: _formKey,
         // crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
@@ -188,7 +187,16 @@ final makeBottom = Container(
                     color: Colors.blueGrey,
                     elevation: 7.0,
                     child: GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                        FirebaseAuth.instance.signInWithEmailAndPassword(
+                          email: _email,
+                          password: _password,
+                        ).then((FirebaseUser user){
+                          Navigator.of(context).pushReplacementNamed('/main_page');
+                        }).catchError((e){
+                          print(e);
+                        });
+                      },
                       child: Center(
                         child: Text(
                           'LOGIN',
@@ -269,10 +277,5 @@ final makeBottom = Container(
 
     
   }
-  void login (){
-    final formState=_formKey.currentState;
-    if(formState.validate()){
-      
-    }
-  }
+  
 }
