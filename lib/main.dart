@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import './menu.dart';
 import './login.dart';
 import './sign_up.dart';
-import './services/usermanagement.dart';
 
 //The import below handles opening a new page webpage within the app
 
