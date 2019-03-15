@@ -1,7 +1,6 @@
 import 'model/lesson.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import './url.dart';
 import 'detail_page.dart';
 import './main2.dart';
 import './menu.dart';
@@ -140,6 +139,82 @@ setState(() => _message = _result);
         );
 
 
+
+
+
+
+//This code snippet should be ignored.
+Dialog errorDialog = Dialog(
+  
+  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)), //this right here
+  child: Container(
+    height: 300.0,
+    width: 300.0,
+
+    child: ListView(
+      
+      children: <Widget>[
+
+
+       FlatButton(onPressed: (){
+        
+        },
+            child: Text('Select Location', style: TextStyle(color: Colors.red, fontSize: 18.0),)),
+            
+        
+        FlatButton(onPressed: (){
+          _launchURL();
+        },
+            child: Text('Hospitals', style: TextStyle(color: Colors.purple, fontSize: 18.0),)),
+            
+        // Padding(
+        //   padding:  EdgeInsets.all(15.0),
+        //   child: Text('Cool', style: TextStyle(color: Colors.red),),
+        // ),
+        Padding(padding: EdgeInsets.only(top: 20.0)),
+
+        FlatButton(onPressed: (){
+          _launchURL();
+        },
+            child: Text('Police Stations', style: TextStyle(color: Colors.purple, fontSize: 18.0),)),
+
+       Padding(padding: EdgeInsets.only(top: 20.0)),
+
+      FlatButton(onPressed: (){
+          _launchURL();
+        },
+            child: Text('Fire Stations', style: TextStyle(color: Colors.purple, fontSize: 18.0),)),
+
+            Padding(padding: EdgeInsets.only(top: 20.0)),
+
+            FlatButton(onPressed: (){
+          _launchURL();
+        },
+            child: Text('Hospitals', style: TextStyle(color: Colors.purple, fontSize: 18.0),)),
+
+
+       Padding(padding: EdgeInsets.only(top: 20.0)),
+
+
+            FlatButton(onPressed: (){
+          _launchURL();
+        },
+            child: Text('Chemist Shops', style: TextStyle(color: Colors.purple, fontSize: 18.0),)),
+
+        
+     
+
+        
+      ],
+    ),
+  ),
+);
+
+
+
+
+
+//Kindly ignore the code above and do not delete it. it implements button
 
 //This defines the contents to be passed to the cardView Button.
 
@@ -844,14 +919,19 @@ Card aboutUSCard() => Card(
             IconButton(
               icon: Icon(Icons.location_on, color: Colors.white),
               onPressed: () {
+
+
+
+         showDialog(context: context, builder: (BuildContext context) => errorDialog);
               
-            showDialog(
-        context: context,
-        builder: (_) => new AlertDialog(
-            title: new Text("Dialog Title"),
-            content: new Text("This is my content"),
-        )
-    );
+    //         showDialog(
+        
+    //     context: context,
+    //     builder: (_) => new AlertDialog(
+    //         title: new Text("Dialog Title"),
+    //         content: new Text("This is my content"),
+    //     )
+    // );
               },
             ),
 
@@ -1072,5 +1152,6 @@ _textMe() async {
     }
   }
 }
+
 
 
