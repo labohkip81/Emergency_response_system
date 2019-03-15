@@ -4,7 +4,10 @@ import 'package:flutter/services.dart';
 import 'detail_page.dart';
 import './main2.dart';
 import './menu.dart';
+import './about.dart';
 import 'package:share/share.dart';
+import './first_aid.dart';
+import './health_id.dart';
 import './send_sms.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 //This import handles the sms feature
@@ -438,11 +441,7 @@ ListTile healthListTile() => ListTile(
           trailing:
               Icon(Icons.account_circle, color: Colors.white, size: 30.0),
           onTap: () {
-           
-          //This if Statement determines what happens when the button/ card is clicked
-
-
-           
+            Navigator.push(context,MaterialPageRoute(builder: (context)=>HealthId()));
             // Navigator.push(
             //     context,
             //     MaterialPageRoute(
@@ -608,11 +607,7 @@ ListTile firstAidListTile() => ListTile(
           trailing:
               Icon(Icons.arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
-           
-          //This if Statement determines what happens when the button/ card is clicked
-
-
-           
+            Navigator.push(context,MaterialPageRoute(builder: (context)=>FirstAid()));
             // Navigator.push(
             //     context,
             //     MaterialPageRoute(
@@ -666,10 +661,7 @@ ListTile aboutUSListTile() => ListTile(
           trailing:
               Icon(Icons.arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
-           
-          //This if Statement determines what happens when the button/ card is clicked
-
-
+            Navigator.push(context,MaterialPageRoute(builder: (context)=>About()));
            
             // Navigator.push(
             //     context,
@@ -858,7 +850,7 @@ Card aboutUSCard() => Card(
 
             //
             IconButton(
-              icon: Icon(Icons.mail, color: Colors.white),
+              icon: Icon(Icons.message, color: Colors.white),
               onPressed: () {
                 _sendSMS("Here is a test Message", ["0703248870", "0701203405"]);
               },
