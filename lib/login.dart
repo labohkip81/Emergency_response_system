@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import './sign_up.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
+import './main.dart';
+import'dart:async';
+import 'package:firebase_auth/firebase_auth.dart';
 
 
 void main() => runApp(FirstRoute());
@@ -25,8 +27,25 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  // Below is the validation and firebase authentication code
+  final formKey=new GlobalKey<FormState>();
+
   String _email;
   String _password;
+
+  bool validateAndSave(){
+    final form =formKey.currentState;
+    if (form.validate()) {
+      form.save();
+      return true;
+      
+    }
+    return false;
+  }
+  void validateAndSubmit(){
+
+  }
+  
 
 
 
@@ -82,6 +101,7 @@ final makeBottom = Container(
       bottomNavigationBar: makeBottom,
       resizeToAvoidBottomPadding: false,
       body: ListView(
+        
         // crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
@@ -122,10 +142,15 @@ final makeBottom = Container(
           ),
           Container(
             padding: EdgeInsets.only(top: 35.0, left: 15.0,right: 15.0),
+            child:Form(
+              key: formKey,
+
             child: Column(
               children: <Widget>[
                 
                 TextFormField(
+                  validator: (value)=>value.isEmpty ? 'Email can\'t be empty':null,
+                  onSaved: (value)=>_email=value,
                   maxLines: 1,
                   keyboardType: TextInputType.emailAddress,
                   autofocus: false,
@@ -137,14 +162,14 @@ final makeBottom = Container(
                         ),
                         focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.green))
                   ),
-                   validator:(value)=>value.isEmpty ? "Email can\ 't be empty":null,
-                   onSaved: (value)=>_email=value,
                 ),
                 SizedBox(
                   height: 20.0,
                 ),
                 TextFormField(
                   obscureText: true,
+                  validator: (value)=>value.isEmpty ? 'Password can\'t be empty':null,
+                  onSaved: (value)=>_password=value,
                   maxLines: 1,
                   maxLength: 10,
                   autofocus: false,
@@ -156,9 +181,7 @@ final makeBottom = Container(
                         ),
                         focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.green))
                   ),
-                  validator:(value)=> value.isEmpty ? "Password can\'t be empty":null,
-                  onSaved: (value)=>_password=value,
-              
+               
                 ),
                 SizedBox(
                   height: 5.0,
@@ -184,19 +207,10 @@ final makeBottom = Container(
                   child: Material(
                     borderRadius: BorderRadius.circular(20.0),
                     shadowColor: Colors.transparent,
-                    color: Colors.blueGrey,
+                    color: Colors.green,
                     elevation: 7.0,
-                    child: GestureDetector(
-                      onTap: (){
-                        FirebaseAuth.instance.signInWithEmailAndPassword(
-                          email: _email,
-                          password: _password,
-                        ).then((FirebaseUser user){
-                          Navigator.of(context).pushReplacementNamed('/main_page');
-                        }).catchError((e){
-                          print(e);
-                        });
-                      },
+                    child: RaisedButton(
+                      onPressed:validateAndSubmit,
                       child: Center(
                         child: Text(
                           'LOGIN',
@@ -240,6 +254,7 @@ final makeBottom = Container(
               ],
             ),
           ),
+          ),
           SizedBox(height: 15.0,),
           Row(
             
@@ -274,8 +289,7 @@ final makeBottom = Container(
       ),
       
     );
-
     
-  }
   
+}
 }
