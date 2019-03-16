@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import './sign_up.dart';
+import './main.dart';
+import'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 
@@ -189,8 +191,10 @@ final makeBottom = Container(
                     shadowColor: Colors.transparent,
                     color: Colors.blueGrey,
                     elevation: 7.0,
-                    child: GestureDetector(
-                      onTap: (){
+                    child: RaisedButton(
+                      onPressed:(){};
+      
+                      
                         // FirebaseAuth.instance.signInWithEmailAndPassword(
                         //   email: _email,
                         //   password: _password,
@@ -199,7 +203,7 @@ final makeBottom = Container(
                         // }).catchError((e){
                         //   print(e);
                         // });
-                      },
+                      
                       child: Center(
                         child: Text(
                           'LOGIN',
@@ -277,13 +281,7 @@ final makeBottom = Container(
       ),
       
     );
-    void Login(){ 
-      final formState= _formKey.currentState;
-      if (formState.validate()){
-      }
-    }
-
     
-  }
   
+}
 }
