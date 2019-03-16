@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import './sign_up.dart';
 import './main.dart';
 import'dart:async';
-// import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 
 void main() => runApp(FirstRoute());
@@ -27,19 +27,22 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  // Below is the validation and firebase authentication code
   final formKey=new GlobalKey<FormState>();
 
   String _email;
   String _password;
 
-  void validateAndSave(){
+  bool validateAndSave(){
     final form =formKey.currentState;
     if (form.validate()) {
-      print('form is valid');
+      form.save();
+      return true;
       
-    }else{
-      print('form is invalid');
     }
+    return false;
+  }
+  void validateAndSubmit(){
 
   }
   
@@ -147,6 +150,7 @@ final makeBottom = Container(
                 
                 TextFormField(
                   validator: (value)=>value.isEmpty ? 'Email can\'t be empty':null,
+                  onSaved: (value)=>_email=value,
                   maxLines: 1,
                   keyboardType: TextInputType.emailAddress,
                   autofocus: false,
@@ -165,6 +169,7 @@ final makeBottom = Container(
                 TextFormField(
                   obscureText: true,
                   validator: (value)=>value.isEmpty ? 'Password can\'t be empty':null,
+                  onSaved: (value)=>_password=value,
                   maxLines: 1,
                   maxLength: 10,
                   autofocus: false,
@@ -205,7 +210,7 @@ final makeBottom = Container(
                     color: Colors.green,
                     elevation: 7.0,
                     child: RaisedButton(
-                      onPressed:validateAndSave,
+                      onPressed:validateAndSubmit,
                       child: Center(
                         child: Text(
                           'LOGIN',
