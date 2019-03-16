@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import './menu.dart';
 import './login.dart';
 import './sign_up.dart';
+import './health_id.dart';
 
 //The import below handles opening a new page webpage within the app
 
@@ -837,7 +838,7 @@ Card aboutUSCard() => Card(
 
               icon: Icon(Icons.account_circle, color: Colors.white),
               onPressed: () {
-                Navigator.of(context).pushNamed('/login');
+                Navigator.push(context,MaterialPageRoute(builder: (context)=>HealthId()));
               },
 
             )

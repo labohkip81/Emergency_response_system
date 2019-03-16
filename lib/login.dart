@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import './sign_up.dart';
 import './main.dart';
 import'dart:async';
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 
 
 void main() => runApp(FirstRoute());
@@ -42,7 +42,17 @@ class _LoginPageState extends State<LoginPage> {
     }
     return false;
   }
-  void validateAndSubmit(){
+  void validateAndSubmit() async{
+    if (validateAndSave()) {
+      try {
+        // FirebaseUser user =await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email,password: _password);
+
+
+        
+      } catch (e) {
+        print('Error: $e');
+      }
+    }
 
   }
   
