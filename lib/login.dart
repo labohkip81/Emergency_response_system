@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './sign_up.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 
 
@@ -27,6 +28,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   String _email;
   String _password;
+  final GlobalKey<FormState>_formKey=GlobalKey<FormState>();
 
 
 
@@ -82,6 +84,7 @@ final makeBottom = Container(
       bottomNavigationBar: makeBottom,
       resizeToAvoidBottomPadding: false,
       body: ListView(
+        key: _formKey,
         // crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
@@ -274,6 +277,11 @@ final makeBottom = Container(
       ),
       
     );
+    void Login(){ 
+      final formState= _formKey.currentState;
+      if (formState.validate()){
+      }
+    }
 
     
   }
