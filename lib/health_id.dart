@@ -28,8 +28,41 @@ class _HealthIdState extends State<HealthId> {
           ],
         ),
         body: Center(
-          child:Container(
-            color: Colors.blueAccent,
+          
+          child:Column(
+            
+         children: <Widget>[
+           Padding(padding: EdgeInsets.only(top: 50.0),),
+           Container(
+             child: Text('Profile Picture'),
+
+           ),
+           SizedBox(height: 20.0),
+           Container(
+             height: 100,
+             width: 100,
+             decoration:BoxDecoration(
+               border: Border.all(
+                 
+                 color: Colors.blue,
+                 width: 3.0
+               ),
+               gradient: LinearGradient(
+                 colors: [
+                   Colors.transparent,
+                   Colors.blue[100],
+                 ]
+      
+               ),
+               shape: BoxShape.circle
+               
+             ),
+             child: ClipOval(child:Icon(Icons.account_circle),),
+             
+           ),
+           
+         ],
+            
           )),
       ),
       
