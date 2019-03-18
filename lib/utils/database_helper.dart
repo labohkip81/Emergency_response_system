@@ -25,6 +25,17 @@ class DatabaseHelper{
 
     return _databaseHelper;
   }
+  Future<Database> get database async{
+    if (_database == null) {
+      _database =await initializeDatabase();
+      
+    }
+    return _database;
+
+
+  }
+
+
   Future <Database> initializeDatabase() async{
     // Get the directory path for Android to store database.
     Directory directory =await getApplicationDocumentsDirectory();
@@ -36,4 +47,16 @@ class DatabaseHelper{
   void _createDb(Database db, int newVersion) async{
     await db.execute('CREATE TABLE $noteTable($colId INTEGER PRIMARY KEY AUTOINCREMENT,$colBlood TEXT,$colHealth TEXT, $colDoctor TEXT, $colPriority TEXT)');
   }
+  // Fetch operation: Insert all note objects from database
+  getNoteMpaList()async{
+    Database db =await this.database;
+    var result =await db.rawQuery('SELECT * FROM $noteTable order by $colPriority ASC');
+    var result =await db.query(noteTable, orderBy: '$colPriority ASC');
+  }
+  // Insert operation: Insert a Note object to database
+  // Update Operations: Update a Note object and save it to database
+  // Delete operation : Delete a Note object from database
+  // Get number of he nte objects in the database
+
+
 }
