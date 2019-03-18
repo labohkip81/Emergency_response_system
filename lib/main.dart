@@ -955,7 +955,7 @@ List getLessons() {
 }
 // to implement functionality fo popup menu
 void choiceAction(String choice){
-  if(choice ==Constant.Settings){
+  if(choice ==Constant.Share){
     // code when buttons clicked to open another activity
 
   //   Share.share('Text');}

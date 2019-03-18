@@ -24,6 +24,7 @@ class _HealthIdState extends State<HealthId> {
           title: Text('Health ID',),
           actions: <Widget>[
             RaisedButton(
+              color: Colors.blue,
               onPressed: (){},
               child: Text('SAVE'),
             ),
