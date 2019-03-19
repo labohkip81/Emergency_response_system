@@ -1,5 +1,17 @@
 import 'model/lesson.dart';
 import 'package:flutter/material.dart';
+
+import './menu.dart';
+import './login.dart';
+import './sign_up.dart';
+import './health_id.dart';
+
+//The import below handles opening a new page webpage within the app
+
+
+//This package is used to load external urls
+// import 'package:url_launcher/url_launcher.dart';
+
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'detail_page.dart';
@@ -19,6 +31,7 @@ import 'package:flutter_sms/flutter_sms.dart';
 //This package is used to load external urlsfl
 import 'package:url_launcher/url_launcher.dart';
 
+
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
@@ -31,6 +44,12 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
           primaryColor: Color.fromRGBO(58, 66, 86, 1.0), fontFamily: 'Raleway'),
       home: new ListPage(title: 'K-Dharura'),
+      routes: <String,WidgetBuilder>{
+        '/sign_up':(BuildContext) => SignUp(),
+        '/login':(BuildContext)=>FirstRoute(),
+        '/main_page':(BuildContext) => MyApp(),
+        
+      }
       // home: DetailPage(),
     );
   }
@@ -121,17 +140,17 @@ setState(() => _message = _result);
           //This if Statement determines what happens when the button/ card is clicked
 
 
-            if(lesson.type=="ambulance"){
-              //The call me function has been defined below the main. dart file
-              _callMe();
-              _textMe();
+            // if(lesson.type=="ambulance"){
+            //   //The call me function has been defined below the main. dart file
+            //   _callMe();
+            //   _textMe();
             
-              print(" Hey there you're calling an ambulance");
-            }
-            else 
-            if(lesson.type=="Fire"){
-              _launchURL();
-            }
+            //   print(" Hey there you're calling an ambulance");
+            // }
+            // else 
+            // if(lesson.type=="Fire"){
+            //   _launchURL();
+            // }
             // Navigator.push(
             //     context,
             //     MaterialPageRoute(
@@ -609,7 +628,7 @@ ListTile breakDownTile() => ListTile(
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
 
-          // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
+
 
           subtitle: Row(
             children: <Widget>[
@@ -626,17 +645,20 @@ ListTile breakDownTile() => ListTile(
           trailing:
               Icon(Icons.arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
+
            
-          //This if Statement determines what happens when the button/ card is clicked
+
+          // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
+
 
 
            
             // Navigator.push(
             //     context,
             //     MaterialPageRoute(
-            //         builder: (context) => DetailPage(lesson: lesson)));
-          },
-        );
+ ); //         builder: (context) => DetailPage(lesson: lesson)));
+          
+        
 
 
 
@@ -684,7 +706,9 @@ ListTile firstAidListTile() => ListTile(
           trailing:
               Icon(Icons.arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
+
             Navigator.push(context,MaterialPageRoute(builder: (context)=>FirstAid()));
+
             // Navigator.push(
             //     context,
             //     MaterialPageRoute(
@@ -738,12 +762,14 @@ ListTile aboutUSListTile() => ListTile(
           trailing:
               Icon(Icons.arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
+
             Navigator.push(context,MaterialPageRoute(builder: (context)=>About()));
            
             // Navigator.push(
             //     context,
             //     MaterialPageRoute(
             //         builder: (context) => DetailPage(lesson: lesson)));
+
           },
         );
 
@@ -905,8 +931,7 @@ Card aboutUSCard() => Card(
     final makeBottom = Container(
       height: 55.0,
       child: BottomAppBar(
-        // color: Color.fromRGBO(58, 66, 86, 1.0),
-        color: Colors.blueGrey,
+       color: Color.fromRGBO(58, 66, 86, 1.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
@@ -933,6 +958,7 @@ Card aboutUSCard() => Card(
     //         content: new Text("This is my content"),
     //     )
     // );
+
               },
             ),
 
@@ -944,10 +970,14 @@ Card aboutUSCard() => Card(
               },
             ),
             IconButton(
+
               icon: Icon(Icons.account_circle, color: Colors.white),
               onPressed: () {
 
+                Navigator.push(context,MaterialPageRoute(builder: (context)=>LoginPage()));
               },
+
+
             )
           ],
         ),
@@ -1062,20 +1092,15 @@ List getLessons() {
 }
 // to implement functionality fo popup menu
 void choiceAction(String choice){
-  if(choice ==Constant.Settings){
+  if(choice ==Constant.Share){
     // code when buttons clicked to open another activity
-    Share.share('Text');}
-  else if(choice == Constant.Account){
-   
 
-  }
-  else if(choice==Constant.Share){
-    Share.share("www.github.com/labohkip81/Emergency_response_system.git kindly visit to contribute");
+  //   Share.share('Text');}
+  // else if(choice == Constant.Account){
+    print("Accounts Button Clicked");
 
-  }
-  else{
-    
-    _launchURL();
+
+  
   
 
  
@@ -1089,6 +1114,7 @@ void choiceAction(String choice){
 
 //This functionality opens an external url link.
 
+
 _launchURL() async {
   const url = 'https://www.google.com/maps/search/?api=1&query=Police Stations';
   if (await canLaunch(url)) {
@@ -1100,7 +1126,9 @@ _launchURL() async {
 
 
 
+
 //This code opens phone and passes a phone number parameter when clicked.
+
 _callMe() async {
     // Android
     const uri = 'tel:07032248870';
@@ -1116,23 +1144,24 @@ _callMe() async {
       }
     }
   }
+
   
   //This code automatically sends sms to the user
 
-_textMe() async {
-    // Android
-    const uri = 'sms:+39 349 060 888';
-    if (await canLaunch(uri)) {
-      await launch(uri);
-    } else {
-      // iOS
-      const uri = 'sms:0039-222-060-888';
-      if (await canLaunch(uri)) {
-        await launch(uri);
-      } else {
-        throw 'Could not launch $uri';
-      }
-    }
+// _textMe() async {
+//     // Android
+//     const uri = 'sms:+39 349 060 888';
+//     if (await canLaunch(uri)) {
+//       await launch(uri);
+//     } else {
+//       // iOS
+      // const uri = 'sms:0039-222-060-888';
+      // if (await canLaunch(uri)) {
+      //   await launch(uri);
+      // } else {
+      //   throw 'Could not launch $uri';
+      // }
+    // }
 
 
 
@@ -1144,6 +1173,7 @@ _textMe() async {
 //Google Map Functionality with string Passed.
 
 
+
  _Amap() async {
     const googleUrl = 'https://www.google.com/maps/search/?api=1&query=Hospitals';
     if (await canLaunch(googleUrl)) {
@@ -1153,6 +1183,7 @@ _textMe() async {
     }
   }
 }
+
 
 
 
