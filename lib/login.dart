@@ -138,7 +138,7 @@ final makeBottom = Container(
               children: <Widget>[
                 Container(
                   padding: EdgeInsets.only(
-                    top: 70.0,
+                    top: 20.0,
                     left: 15.0,
                     
                   ),
@@ -148,7 +148,7 @@ final makeBottom = Container(
                 ),
                 Container(
                   padding: EdgeInsets.only(
-                    top: 130.0,
+                    top: 70.0,
                     left: 15.0,
                   ),
                   child: Text('There',
@@ -157,7 +157,7 @@ final makeBottom = Container(
                 ),
                 Container(
                   padding: EdgeInsets.only(
-                    top: 100.0,
+                    top: 60.0,
                     left: 200.0,
                   ),
                   child: Text('.',
@@ -178,15 +178,16 @@ final makeBottom = Container(
               children: <Widget>[
                 
                 TextFormField(
+
                   validator: (String arg){
                     if (arg.length < 3) 
                       return 'Name must be more than two letters';
                     else
                       return null;
                   },
+                  cursorColor: Colors.green,
                   maxLines: 1,
                   onSaved: (val)=>_username =val,
-                  keyboardType: TextInputType.emailAddress,
                   autofocus: false,
                   decoration: InputDecoration(
                     labelText: 'USERNAME',
@@ -201,6 +202,8 @@ final makeBottom = Container(
                   height: 20.0,
                 ),
                 TextFormField(
+                  textInputAction: TextInputAction.done,
+                  cursorColor: Colors.green,
                   onSaved: (val) => this._password = val,
                   obscureText: _obscureText,
                   // onSaved: (val)=>_password =val,
@@ -211,7 +214,7 @@ final makeBottom = Container(
                   decoration: InputDecoration(
                     suffixIcon:IconButton(
                       onPressed: _toggle,
-                      color: Colors.green,
+                      color: Colors.white,
                       icon: Icon(Icons.remove_red_eye),
                     ),
                     labelText: 'PASSWORD',
