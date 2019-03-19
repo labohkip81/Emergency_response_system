@@ -30,6 +30,17 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> implements LoginPageContract{
+  bool _obscureText = true;
+
+
+
+  // Toggles the password show status
+  void _toggle() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
+
   BuildContext _ctx;
   bool _isLoading;
   final formKey=new GlobalKey<FormState>();
@@ -191,13 +202,18 @@ final makeBottom = Container(
                 ),
                 TextFormField(
                   onSaved: (val) => this._password = val,
-                  obscureText: true,
+                  obscureText: _obscureText,
                   // onSaved: (val)=>_password =val,
                    validator: (val) =>val.length < 6 ? 'Password too short.' : null,
                   maxLines: 1,
                   maxLength: 10,
                   autofocus: false,
                   decoration: InputDecoration(
+                    suffixIcon:IconButton(
+                      onPressed: _toggle,
+                      color: Colors.green,
+                      icon: Icon(Icons.remove_red_eye),
+                    ),
                     labelText: 'PASSWORD',
                     labelStyle: TextStyle(
                         fontWeight: FontWeight.bold, 
@@ -205,13 +221,10 @@ final makeBottom = Container(
                         ),
                         focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.green))
                   ),
-               
+       
                 ),
-                SizedBox(
-                  height: 5.0,
-                ),
-              
-                SizedBox(height: 40.0,),
+            
+                SizedBox(height: 20.0,),
                 Container(
                   
                   
@@ -235,8 +248,7 @@ final makeBottom = Container(
 
                   ),
                 ),
-                SizedBox(height: 20.0,),
-          
+            
               ],
             ),
           ),
