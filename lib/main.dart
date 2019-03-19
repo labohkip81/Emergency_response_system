@@ -983,6 +983,8 @@ Card aboutUSCard() => Card(
         ),
       ),
     );
+
+    //This defines the top appBar and the buttons
     final topAppBar = AppBar(
       elevation: 0.1,
       backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
@@ -1104,19 +1106,19 @@ List getLessons() {
 void choiceAction(String choice){
   if(choice ==Constant.Share){
     // code when buttons clicked to open another activity
-
-  //   Share.share('Text');}
-  // else if(choice == Constant.Account){
-    print("Accounts Button Clicked");
-
-
+ debugPrint("Share button Clicked");
   
   
+  Share.share('Text');}
 
- 
 
+  else if(choice == Constant.Help){
+
+    debugPrint("Help Button clicked");
   }
-
+  else{
+    debugPrint("About button Clicked");
+  }
    
 
 }
