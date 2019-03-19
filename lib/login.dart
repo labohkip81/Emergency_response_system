@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kdharura/data/databasehelper.dart';
+import 'package:kdharura/model/user.dart';
+import 'package:kdharura/pager/login_page.dart';
 import './sign_up.dart';
 import './main.dart';
 import'dart:async';
@@ -26,35 +29,39 @@ class LoginPage extends StatefulWidget {
   _LoginPageState createState() => new _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  // Below is the validation and firebase authentication code
+class _LoginPageState extends State<LoginPage> implements LoginPageContract{
+  BuildContext _ctx;
+  bool _isLoading;
   final formKey=new GlobalKey<FormState>();
+  final scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  String _email;
-  String _password;
+  String _username, _password;
 
-  bool validateAndSave(){
+  LoginPagePresenter _presenter;
+
+  _LoginPageState(){
+    _presenter = new LoginPagePresenter(this);
+  }
+
+  void _submit(){
     final form =formKey.currentState;
+
     if (form.validate()) {
-      form.save();
-      return true;
+      setState(() {
+        _isLoading =true;
+        form.save();
+        _presenter.doLogin(_username, _password);
+      });
       
     }
-    return false;
   }
-  void validateAndSubmit() async{
-    if (validateAndSave()) {
-      try {
-        // FirebaseUser user =await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email,password: _password);
-
-
-        
-      } catch (e) {
-        print('Error: $e');
-      }
-    }
-
+  void _showSnackBar(String text){
+    scaffoldKey.currentState.showSnackBar(new SnackBar(
+      content:new Text(text) ,));
   }
+
+
+ 
   
 
 
@@ -102,15 +109,16 @@ final makeBottom = Container(
 
   @override
   Widget build(BuildContext context) {
-    return new 
+    _ctx =context; 
     
       
     
     Scaffold(
+      key: scaffoldKey,
       backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
       bottomNavigationBar: makeBottom,
       resizeToAvoidBottomPadding: false,
-      body: ListView(
+      body: new ListView(
         
         // crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -159,13 +167,12 @@ final makeBottom = Container(
               children: <Widget>[
                 
                 TextFormField(
-                  validator: (value)=>value.isEmpty ? 'Email can\'t be empty':null,
-                  onSaved: (value)=>_email=value,
                   maxLines: 1,
+                  onSaved: (val)=>_username =val,
                   keyboardType: TextInputType.emailAddress,
                   autofocus: false,
                   decoration: InputDecoration(
-                    labelText: 'EMAIL',
+                    labelText: 'Username',
                     labelStyle: TextStyle(
                         fontWeight: FontWeight.bold, 
                         color: Colors.white
@@ -178,8 +185,7 @@ final makeBottom = Container(
                 ),
                 TextFormField(
                   obscureText: true,
-                  validator: (value)=>value.isEmpty ? 'Password can\'t be empty':null,
-                  onSaved: (value)=>_password=value,
+                  onSaved: (val)=>_password =val,
                   maxLines: 1,
                   maxLength: 10,
                   autofocus: false,
@@ -220,7 +226,7 @@ final makeBottom = Container(
                     color: Colors.green,
                     elevation: 7.0,
                     child: RaisedButton(
-                      onPressed:validateAndSubmit,
+                      onPressed:_submit,
                       child: Center(
                         child: Text(
                           'LOGIN',
@@ -295,11 +301,30 @@ final makeBottom = Container(
                 ),
             ],
           )
-        ],
+         ],
       ),
       
     );
     
   
 }
+
+  @override
+  void onLoginError(String error) {
+    _showSnackBar(error);
+    setState(() {
+      _isLoading = false;
+    });
+  }
+
+  @override
+  void onLoginSuccess(User user) async {
+    _showSnackBar(user.toString());
+    setState(() {
+      _isLoading = false;
+     
+    });
+     var db = new DatabaseHelper();
+      await db.saveUser(user);
+  }
 }
