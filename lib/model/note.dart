@@ -1,3 +1,7 @@
+
+
+
+
 class Note{
   int _id;
   String _blood;
@@ -49,12 +53,12 @@ class Note{
       return map;
     }
     // Extract a Note Object from a Map Object
-    Note.fromMapObject(Map<String, dynamic> map){
-      this._id = map['id'];
-      this._blood = map['blood'];
-      this._health = map['health'];
-      this._doctor = map['doctor'];
-      this._priority = map['priority'];
+    // Note.fromMapObject(Map<String, dynamic> map){
+    //   this._id = map['id'];
+    //   this._blood = map['blood'];
+    //   this._health = map['health'];
+    //   this._doctor = map['doctor'];
+    //   this._priority = map['priority'];
 
 
 
@@ -63,5 +67,6 @@ class Note{
     }
 
 
-  }
+  
+  
 }
