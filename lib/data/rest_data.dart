@@ -1,3 +1,4 @@
+import 'package:kdharura/model/user.dart';
 import 'package:kdharura/utils/network.dart';
 
 class RestData{
@@ -9,6 +10,6 @@ class RestData{
 
 
   Future<User> login (String username , String password){
-    return null;
+    return new Future.value(new User(username,password));
   }
 }

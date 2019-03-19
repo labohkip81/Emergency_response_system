@@ -838,7 +838,7 @@ Card aboutUSCard() => Card(
 
               icon: Icon(Icons.account_circle, color: Colors.white),
               onPressed: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context)=>HealthId()));
+                Navigator.push(context,MaterialPageRoute(builder: (context)=>LoginPage()));
               },
 
             )

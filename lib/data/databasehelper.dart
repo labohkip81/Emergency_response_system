@@ -6,7 +6,7 @@ import 'dart:io' as io;
 import 'package:path_provider/path_provider.dart';
 
 class DatabaseHelper{
-  static final DatabaseHelper _instance = new DatabaseHelper._internal();
+  static final DatabaseHelper _instance = new DatabaseHelper.internal();
   factory DatabaseHelper() => _instance;
 
 

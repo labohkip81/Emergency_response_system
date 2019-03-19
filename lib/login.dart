@@ -324,7 +324,9 @@ final makeBottom = Container(
       _isLoading = false;
      
     });
-     var db = new DatabaseHelper();
-      await db.saveUser(user);
+    var db = new DatabaseHelper();
+    await db.saveUser(user);
+    Navigator.push(context,MaterialPageRoute(builder: (context)=>MyApp()));
+    
   }
 }
