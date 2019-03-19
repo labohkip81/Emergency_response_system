@@ -1,6 +1,7 @@
 import 'model/lesson.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 import 'detail_page.dart';
 import './main2.dart';
 import './menu.dart';
