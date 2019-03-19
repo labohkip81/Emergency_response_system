@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import './model/note.dart';
 import 'package:sqflite/sqflite.dart';
-import './utils/database_helper.dart'; 
 
 
 
