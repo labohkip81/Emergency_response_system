@@ -644,7 +644,7 @@ ListTile breakDownTile() => ListTile(
           ),
           trailing:
               Icon(Icons.arrow_right, color: Colors.white, size: 30.0),
-          onTap: () {
+          onTap: () {}
 
            
 
@@ -1006,6 +1006,16 @@ Card aboutUSCard() => Card(
     );
 
     return Scaffold(
+    
+    floatingActionButton: FloatingActionButton.extended(
+      onPressed: (){
+        Navigator.push(context,MaterialPageRoute(builder: (context)=>HealthId()));
+      },
+      icon: Icon(Icons.add),
+      backgroundColor: Colors.blueAccent,
+      label:Text( 'Health ID'),
+      
+    ),
       resizeToAvoidBottomPadding: false,
       backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
       appBar: topAppBar,
@@ -1182,8 +1192,8 @@ _callMe() async {
       throw 'Could not open the map.';
     }
   }
-}
 
 
+ 
 
 
