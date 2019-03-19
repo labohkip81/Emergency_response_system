@@ -1,6 +1,6 @@
 import 'model/lesson.dart';
 import 'package:flutter/material.dart';
-
+import './help.dart';
 import './menu.dart';
 import './login.dart';
 import './sign_up.dart';
@@ -1012,7 +1012,7 @@ Card aboutUSCard() => Card(
         Navigator.push(context,MaterialPageRoute(builder: (context)=>HealthId()));
       },
       icon: Icon(Icons.add),
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: Colors.redAccent,
       label:Text( 'Health ID'),
       
     ),
@@ -1102,20 +1102,15 @@ List getLessons() {
 }
 // to implement functionality fo popup menu
 void choiceAction(String choice){
-  if(choice ==Constant.Share){
+  if(choice ==Constant.Help){
+    Navigator.push(context,MaterialPageRoute(builder: (context)=>Help()));
     // code when buttons clicked to open another activity
 
-  //   Share.share('Text');}
-  // else if(choice == Constant.Account){
+    Share.share('Text');}
+  else if(choice == Constant.Share){
     print("Accounts Button Clicked");
-
-
-  
-  
-
- 
-
   }
+  else(choice == Constant.About){};
 
    
 
