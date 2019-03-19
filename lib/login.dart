@@ -172,7 +172,7 @@ final makeBottom = Container(
                   keyboardType: TextInputType.emailAddress,
                   autofocus: false,
                   decoration: InputDecoration(
-                    labelText: 'Username',
+                    labelText: 'USERNAME',
                     labelStyle: TextStyle(
                         fontWeight: FontWeight.bold, 
                         color: Colors.white
@@ -202,20 +202,7 @@ final makeBottom = Container(
                 SizedBox(
                   height: 5.0,
                 ),
-                Container(
-                  alignment: Alignment(1.0, 0.0),
-                  padding: EdgeInsets.only(left: 20.0, top: 15.0),
-                  child: InkWell(
-                    child: Text(
-                      'Forgot Password',
-                      style: TextStyle(
-                          fontSize: 15.0,
-                          color: Colors.green,
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.underline),
-                    ),
-                  ),
-                ),
+              
                 SizedBox(height: 40.0,),
                 Container(
                   
@@ -226,10 +213,11 @@ final makeBottom = Container(
                     color: Colors.green,
                     elevation: 7.0,
                     child: RaisedButton(
+                      color: Colors.greenAccent,
                       onPressed:_submit,
                       child: Center(
                         child: Text(
-                          'LOGIN',
+                          'SUBMIT',
                         style:TextStyle(
                           color:Colors.white ,
                           fontWeight: FontWeight.bold)),
@@ -239,68 +227,12 @@ final makeBottom = Container(
                   ),
                 ),
                 SizedBox(height: 20.0,),
-                Container(
-                  height: 40.0,
-                  color: Colors.transparent,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color:Colors.black,
-                        style: BorderStyle.solid,
-                        width: 1.0,
-                      ),
-                      color: Colors.transparent,
-                      borderRadius: BorderRadius.circular(20.0)
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Center(child:
-                        
-                         ImageIcon(AssetImage('assets/google.png'),color: Colors.white,),),
-                         SizedBox(width: 20.0,),
-                         Center(
-                           child: Text('Login using Google',
-                           style:TextStyle(color:Colors.white,fontWeight:FontWeight.bold)),
-                         )
-                      ],
-                    ),
-                  ),
-                )
+          
               ],
             ),
           ),
           ),
-          SizedBox(height: 15.0,),
-          Row(
-            
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text('New to K-Dharura?',
-              style:TextStyle(
-                color: Colors.white,
-                fontWeight:FontWeight.bold,)),
-                SizedBox(width: 5.0,),
-                
-                InkWell(
-                  onTap: (){
-                   Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => SignUp(),
-                settings: RouteSettings(name: 'sign_up')),
-          );
-                  },
-                  child: Text('Register',
-                  style:TextStyle(
-                    fontWeight:FontWeight.bold,
-                    color:Colors.green,
-                    decoration: TextDecoration.underline,
-                  )),
-
-                ),
-            ],
-          )
+          
          ],
       ),
       
