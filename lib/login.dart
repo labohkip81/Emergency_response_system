@@ -167,6 +167,12 @@ final makeBottom = Container(
               children: <Widget>[
                 
                 TextFormField(
+                  validator: (String arg){
+                    if (arg.length < 3) 
+                      return 'Name must be more than two letters';
+                    else
+                      return null;
+                  },
                   maxLines: 1,
                   onSaved: (val)=>_username =val,
                   keyboardType: TextInputType.emailAddress,
@@ -184,8 +190,9 @@ final makeBottom = Container(
                   height: 20.0,
                 ),
                 TextFormField(
+                  onSaved: (val) => this._password = val,
                   obscureText: true,
-                  onSaved: (val)=>_password =val,
+                  // onSaved: (val)=>_password =val,
                   maxLines: 1,
                   maxLength: 10,
                   autofocus: false,
@@ -206,6 +213,7 @@ final makeBottom = Container(
                 SizedBox(height: 40.0,),
                 Container(
                   
+                  
                   height: 40.0,
                   child: Material(
                     borderRadius: BorderRadius.circular(20.0),
@@ -213,13 +221,13 @@ final makeBottom = Container(
                     color: Colors.green,
                     elevation: 7.0,
                     child: RaisedButton(
-                      color: Colors.greenAccent,
+                      color: Colors.green,
                       onPressed:_submit,
                       child: Center(
                         child: Text(
                           'SUBMIT',
                         style:TextStyle(
-                          color:Colors.white ,
+                          color:Colors.black ,
                           fontWeight: FontWeight.bold)),
                       ),
                     ),

@@ -6,7 +6,12 @@ void main() => runApp(new Help());
 class Help extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Material(
+    return Container(
+      decoration: BoxDecoration(borderRadius:BorderRadius.circular(20.0)),
+      child:Image(
+        
+      ),
+      
       
     );
   }
