@@ -193,6 +193,7 @@ final makeBottom = Container(
                   onSaved: (val) => this._password = val,
                   obscureText: true,
                   // onSaved: (val)=>_password =val,
+                   validator: (val) =>val.length < 6 ? 'Password too short.' : null,
                   maxLines: 1,
                   maxLength: 10,
                   autofocus: false,
