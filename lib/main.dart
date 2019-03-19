@@ -1,5 +1,6 @@
 import 'model/lesson.dart';
 import 'package:flutter/material.dart';
+import './emergency_numbers.dart';
 
 import './menu.dart';
 import './login.dart';
@@ -1057,12 +1058,13 @@ void choiceAction(String choice){
   else if(choice == Constant.Help){
 
     debugPrint("Help Button clicked");
+        //This opens the about page from the actionbar
+Navigator.push(context,MaterialPageRoute(builder: (context)=>NoteDetail("Emergency Page")));
   }
   else{
 
-    //This opens the about page from the actionbar
-Navigator.push(context,MaterialPageRoute(builder: (context)=>About()));
-
+//This Routes to the page that has the emergency information and Sos contacts
+Navigator.push(context,MaterialPageRoute(builder: (context)=>NoteDetail("Emergency Page")));
     debugPrint("About button Clicked");
   }
    
