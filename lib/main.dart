@@ -1,6 +1,7 @@
 import 'model/lesson.dart';
 import 'package:flutter/material.dart';
 import './emergency_numbers.dart';
+import './health_details.dart';
 
 import './menu.dart';
 import './login.dart';
@@ -182,18 +183,33 @@ Dialog errorDialog = Dialog(
     child: ListView(
       
       children: <Widget>[
-
-
-       FlatButton(onPressed: (){
-        
-        },
-            child: Text('Select Location', style: TextStyle(color: Colors.red, fontSize: 18.0),)),
-            
-        
-        FlatButton(onPressed: (){
+ FlatButton(onPressed: (){
           _launchURL();
         },
-            child: Text('Hospitals', style: TextStyle(color: Colors.purple, fontSize: 18.0),)),
+
+        child: ListTile(
+          
+          title: Text('What are you looking for?', style: TextStyle(color: Colors.black, fontSize: 18.0),),
+        
+        ),
+            // child: 
+            // 
+            
+            ),
+
+       FlatButton(onPressed: (){
+          _launchURL();
+        },
+
+        child: ListTile(
+          leading: Icon(Icons.navigation),
+          title: Text('Hospital', style: TextStyle(color: Colors.purple, fontSize: 18.0),),
+          trailing: Icon(Icons.arrow_forward_ios),
+        ),
+            // child: 
+            // 
+            
+            ),
             
         // Padding(
         //   padding:  EdgeInsets.all(15.0),
@@ -204,23 +220,48 @@ Dialog errorDialog = Dialog(
         FlatButton(onPressed: (){
           _launchURL();
         },
-            child: Text('Police Stations', style: TextStyle(color: Colors.purple, fontSize: 18.0),)),
+
+        child: ListTile(
+          leading: Icon(Icons.navigation),
+          title: Text('Fire Station', style: TextStyle(color: Colors.purple, fontSize: 18.0),),
+          trailing: Icon(Icons.arrow_forward_ios),
+        ),
+            // child: 
+            // 
+            
+            ),
 
        Padding(padding: EdgeInsets.only(top: 20.0)),
 
-      FlatButton(onPressed: (){
+       FlatButton(onPressed: (){
           _launchURL();
         },
-            child: Text('Fire Stations', style: TextStyle(color: Colors.purple, fontSize: 18.0),)),
 
-            Padding(padding: EdgeInsets.only(top: 20.0)),
+        child: ListTile(
+          leading: Icon(Icons.navigation),
+          title: Text('Police Stations', style: TextStyle(color: Colors.purple, fontSize: 18.0),),
+          trailing: Icon(Icons.arrow_forward_ios),
+        ),
+            // child: 
+            // 
+            
+            ),
 
-            FlatButton(onPressed: (){
+
+
+       FlatButton(onPressed: (){
           _launchURL();
         },
-            child: Text('Hospitals', style: TextStyle(color: Colors.purple, fontSize: 18.0),)),
 
-
+        child: ListTile(
+          leading: Icon(Icons.navigation),
+          title: Text('Police Stations', style: TextStyle(color: Colors.purple, fontSize: 18.0),),
+          trailing: Icon(Icons.arrow_forward_ios),
+        ),
+            // child: 
+            // 
+            
+            ),
        Padding(padding: EdgeInsets.only(top: 20.0)),
 
 
@@ -545,7 +586,7 @@ ListTile healthListTile() => ListTile(
           trailing:
               Icon(Icons.account_circle, color: Colors.white, size: 30.0),
           onTap: () {
-            Navigator.push(context,MaterialPageRoute(builder: (context)=>HealthId()));
+            Navigator.push(context,MaterialPageRoute(builder: (context)=>HealthDetails()));
             // Navigator.push(
             //     context,
             //     MaterialPageRoute(
