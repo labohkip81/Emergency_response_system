@@ -309,8 +309,19 @@ ListTile ambulanceTile() => ListTile(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
            
 
-            child:
-             Icon(Icons.blur_on, color: Colors.white),
+            
+            child: CircleAvatar(
+               
+               backgroundColor: Colors.white,
+               radius: 20.0,
+               child: Image.asset(
+                 'assets/ambulance.png',
+                 width:60.0,
+                 height:60.0,
+                 fit:BoxFit.cover,
+                 color: Colors.blue,
+               ),
+             ),            
              
   
            
@@ -326,19 +337,11 @@ ListTile ambulanceTile() => ListTile(
 
           subtitle: Row(
             children: <Widget>[
-              Expanded(
-                  flex: 1,
-                  child: Container(
-                    // tag: 'hero',
-                    child: LinearProgressIndicator(
-                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-                        value: 0.5,
-                        valueColor: AlwaysStoppedAnimation(Colors.green)),
-                  )),
+             
               Expanded(
                 flex: 4,
                 child: Padding(
-                    padding: EdgeInsets.only(left: 10.0),
+                    padding: EdgeInsets.only(left: 0.0),
                     child: Text("Request for an ambulance",
                         style: TextStyle(color: Colors.white))),
               )
@@ -375,8 +378,18 @@ ListTile fireTile() => ListTile(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
            
 
-            child:
-             Icon(Icons.local_car_wash, color: Colors.white),
+            child: CircleAvatar(
+               
+               backgroundColor: Colors.white,
+               radius: 20.0,
+               child: Image.asset(
+                 'assets/fire.png',
+                 width:50.0,
+                 height:50.0,
+                 fit:BoxFit.cover,
+                 color: Colors.deepOrange,
+               ),
+             ),            
              
   
            
@@ -392,21 +405,15 @@ ListTile fireTile() => ListTile(
 
           subtitle: Row(
             children: <Widget>[
-              Expanded(
-                  flex: 1,
-                  child: Container(
-                    // tag: 'hero',
-                    child: LinearProgressIndicator(
-                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-                        value: 0.5,
-                        valueColor: AlwaysStoppedAnimation(Colors.red)),
-                  )),
+             
+
               Expanded(
                 flex: 4,
                 child: Padding(
-                    padding: EdgeInsets.only(left: 10.0),
+                    padding: EdgeInsets.only(right: 30.0),
                     child: Text("Request for a fire fighter",
-                        style: TextStyle(color: Colors.white))),
+                        style: TextStyle(
+                          color: Colors.white))),
               )
             ],
           ),
@@ -437,9 +444,19 @@ ListTile fireTile() => ListTile(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
            
 
-            child:
-             Icon(Icons.lightbulb_outline, color: Colors.white),
-             
+           
+            child: CircleAvatar(
+               
+               backgroundColor: Colors.white,
+               radius: 20.0,
+               child: Image.asset(
+                 'assets/police.png',
+                 width:40.0,
+                 height:40.0,
+                 fit:BoxFit.cover,
+                 color: Colors.blue,
+               ),
+             ),            
   
            
           ),
@@ -454,19 +471,11 @@ ListTile fireTile() => ListTile(
 
           subtitle: Row(
             children: <Widget>[
-              Expanded(
-                  flex: 1,
-                  child: Container(
-                    // tag: 'hero',
-                    child: LinearProgressIndicator(
-                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-                        value: 0.5,
-                        valueColor: AlwaysStoppedAnimation(Colors.orange)),
-                  )),
+              
               Expanded(
                 flex: 4,
                 child: Padding(
-                    padding: EdgeInsets.only(left: 10.0),
+                    padding: EdgeInsets.only(left: 0.0),
                     child: Text("Alert the police",
                         style: TextStyle(color: Colors.white))),
               )
@@ -500,9 +509,19 @@ ListTile accidentTile() => ListTile(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
            
 
-            child:
-             Icon(Icons.beenhere, color: Colors.white),
-             
+        
+            child: CircleAvatar(
+               
+               backgroundColor: Colors.white,
+               radius: 20.0,
+               child: Image.asset(
+                 'assets/accident.png',
+                 width:50.0,
+                 height:50.0,
+                 fit:BoxFit.cover,
+                 color: Colors.redAccent,
+               ),
+             ),            
   
            
           ),
@@ -517,19 +536,11 @@ ListTile accidentTile() => ListTile(
 
           subtitle: Row(
             children: <Widget>[
-              Expanded(
-                  flex: 1,
-                  child: Container(
-                    // tag: 'hero',
-                    child: LinearProgressIndicator(
-                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-                        value: 0.5,
-                        valueColor: AlwaysStoppedAnimation(Colors.red)),
-                  )),
+             
               Expanded(
                 flex: 4,
                 child: Padding(
-                    padding: EdgeInsets.only(left: 10.0),
+                    padding: EdgeInsets.only(left: 0.0),
                     child: Text("Report an accident",
                         style: TextStyle(color: Colors.white))),
               )
@@ -563,8 +574,18 @@ ListTile healthListTile() => ListTile(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
            
 
-            child:
-             Icon(Icons.supervisor_account, color: Colors.white, size: 40.0,),
+               child: CircleAvatar(
+               backgroundColor: Colors.white,
+               radius: 20.0,
+               child: Image.asset(
+                 'assets/health.png',
+                 width:40.0,
+                 height:40.0,
+                 fit:BoxFit.cover,
+                 color: Colors.green,
+               ),
+             ),            
+  
              
   
            
@@ -618,8 +639,12 @@ ListTile panicListTile() => ListTile(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
            
 
-            child:
-             Icon(Icons.transfer_within_a_station, color: Colors.white),
+              child: CircleAvatar(
+               backgroundColor: Colors.white,
+               radius: 20.0,
+               child: Icon(Icons.transfer_within_a_station),
+             ),            
+  
              
   
            
@@ -673,8 +698,18 @@ ListTile breakDownTile() => ListTile(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
            
 
-            child:
-             Icon(Icons.traffic, color: Colors.redAccent, size: 30.0,),
+            
+               child: CircleAvatar(
+               backgroundColor: Colors.white,
+               radius: 20.0,
+               child: Image.asset(
+                 'assets/breakdown.png',
+                 width:40.0,
+                 height:40.0,
+                 fit:BoxFit.cover,
+                 color: Colors.black,
+               ),
+             ),   
              
   
            
@@ -702,7 +737,9 @@ ListTile breakDownTile() => ListTile(
           ),
           trailing:
               Icon(Icons.arrow_right, color: Colors.white, size: 30.0),
-          onTap: () {}
+          onTap:_garageURL,
+            
+          
 
            
 
@@ -734,8 +771,19 @@ ListTile firstAidListTile() => ListTile(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
            
 
-            child:
-             Icon(Icons.nature_people, color: Colors.white,size: 30.0,),
+            
+               child: CircleAvatar(
+              foregroundColor: Colors.white,
+               backgroundColor: Colors.white,
+               radius: 20.0,
+               child: Image.asset(
+                 'assets/aid.png',
+                 width:40.0,
+                 height:40.0,
+                 fit:BoxFit.cover,
+                 color: Colors.red,
+               ),
+             ),   
              
   
            
@@ -790,9 +838,17 @@ ListTile aboutUSListTile() => ListTile(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
            
 
-            child:
-             Icon(Icons.people_outline, color: Colors.white, size: 30.0,),
-             
+               child: CircleAvatar(
+               backgroundColor: Colors.white,
+               radius: 20.0,
+               child: Image.asset(
+                 'assets/about.png',
+                 width:40.0,
+                 height:40.0,
+                 fit:BoxFit.cover,
+                 color: Colors.lightBlue,
+               ),
+             ),   
   
            
           ),
@@ -1087,7 +1143,7 @@ Card aboutUSCard() => Card(
          policeCard(),
          accidentCard(),
          healthCard(),
-         panicCard(),
+        
          breakDownCard(),
          firstAidCard(),
          aboutUSCard(),

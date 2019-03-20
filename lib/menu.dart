@@ -10,7 +10,6 @@ class  Constant  {
   static const List<String> choices = <String>[
     
     Emergency,
-    Help,
     Share,
    
   ];
