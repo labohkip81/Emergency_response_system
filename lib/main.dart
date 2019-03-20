@@ -184,12 +184,12 @@ Dialog errorDialog = Dialog(
       
       children: <Widget>[
  FlatButton(onPressed: (){
-          _launchURL();
+        
         },
 
         child: ListTile(
-          
-          title: Text('What are you looking for?', style: TextStyle(color: Colors.black, fontSize: 18.0),),
+          contentPadding: EdgeInsets.only(left: 60.0),
+          title: Text('Locations Nearby', style: TextStyle(color: Colors.black, fontSize: 18.0),),
         
         ),
             // child: 
@@ -198,12 +198,12 @@ Dialog errorDialog = Dialog(
             ),
 
        FlatButton(onPressed: (){
-          _launchURL();
+          _hospitalURL();
         },
 
         child: ListTile(
           leading: Icon(Icons.navigation),
-          title: Text('Hospital', style: TextStyle(color: Colors.purple, fontSize: 18.0),),
+          title: Text('Hospitals', style: TextStyle(color: Colors.purple, fontSize: 18.0),),
           trailing: Icon(Icons.arrow_forward_ios),
         ),
             // child: 
@@ -223,7 +223,7 @@ Dialog errorDialog = Dialog(
 
         child: ListTile(
           leading: Icon(Icons.navigation),
-          title: Text('Fire Station', style: TextStyle(color: Colors.purple, fontSize: 18.0),),
+          title: Text('Police Stations', style: TextStyle(color: Colors.purple, fontSize: 18.0),),
           trailing: Icon(Icons.arrow_forward_ios),
         ),
             // child: 
@@ -234,12 +234,12 @@ Dialog errorDialog = Dialog(
        Padding(padding: EdgeInsets.only(top: 20.0)),
 
        FlatButton(onPressed: (){
-          _launchURL();
+          _bankURL();
         },
 
         child: ListTile(
           leading: Icon(Icons.navigation),
-          title: Text('Police Stations', style: TextStyle(color: Colors.purple, fontSize: 18.0),),
+          title: Text('Banks and Atms', style: TextStyle(color: Colors.purple, fontSize: 18.0),),
           trailing: Icon(Icons.arrow_forward_ios),
         ),
             // child: 
@@ -250,12 +250,12 @@ Dialog errorDialog = Dialog(
 
 
        FlatButton(onPressed: (){
-          _launchURL();
+          _garageURL();
         },
 
         child: ListTile(
           leading: Icon(Icons.navigation),
-          title: Text('Police Stations', style: TextStyle(color: Colors.purple, fontSize: 18.0),),
+          title: Text('Car Garages', style: TextStyle(color: Colors.purple, fontSize: 18.0),),
           trailing: Icon(Icons.arrow_forward_ios),
         ),
             // child: 
@@ -264,15 +264,24 @@ Dialog errorDialog = Dialog(
             ),
        Padding(padding: EdgeInsets.only(top: 20.0)),
 
-
-            FlatButton(onPressed: (){
-          _launchURL();
+FlatButton(onPressed: (){
+          _fireURL();
         },
-            child: Text('Chemist Shops', style: TextStyle(color: Colors.purple, fontSize: 18.0),)),
+
+        child: ListTile(
+          leading: Icon(Icons.navigation),
+          title: Text('Fire Stations', style: TextStyle(color: Colors.purple, fontSize: 18.0),),
+          trailing: Icon(Icons.arrow_forward_ios),
+        ),
+            // child: 
+            // 
+            
+            ),
 
         
      
-
+//............................................................................................................................
+//This marks the end of the locations dialog box
         
       ],
     ),
@@ -1220,6 +1229,9 @@ List getLessons() {
 //This functionality opens an external url link.
 
 
+
+
+//Police Stations url.
 _launchURL() async {
   const url = 'https://www.google.com/maps/search/?api=1&query=Police Stations';
   if (await canLaunch(url)) {
@@ -1229,6 +1241,50 @@ _launchURL() async {
   }
 }
 
+//Function for Hospital Google Maps
+_hospitalURL() async {
+  const url = 'https://www.google.com/maps/search/?api=1&query=Hospitals';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+
+
+//Banks and Atms url
+
+_bankURL() async {
+  const url = 'https://www.google.com/maps/search/?api=1&query=Banks and Atms';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+//Car garage Url
+_garageURL() async {
+  const url = 'https://www.google.com/maps/search/?api=1&query=Garages';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+
+//Fire stations google map url
+
+_fireURL() async {
+  const url = 'https://www.google.com/maps/search/?api=1&query=FireStation';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
 
 
 

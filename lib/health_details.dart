@@ -30,7 +30,7 @@ class _HealthDetailsState extends State<HealthDetails> {
             RaisedButton(
               color: Colors.blue,
               onPressed: (){},
-              child: Text('SAVE'),
+              
             ),
              ],
         ),
@@ -85,15 +85,14 @@ class _HealthDetailsState extends State<HealthDetails> {
            
            SizedBox(height: 20.0,),
            Container(
-             padding: EdgeInsets.all(20.0),
-             child: Text('Personal Health'),
+             padding: EdgeInsets.only(left: 120.0,right: 100.0),
+             child:
+             Text('Personal Health Details',style: TextStyle(fontWeight: FontWeight.bold),),
            ),
            Container(
              padding: EdgeInsets.all(20.0),
 
-             child: Text(
-               "Bloodgroup",
-             ),
+             
             //  child: TextFormField(decoration: InputDecoration(
             //    border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
             //    hintText: 'A, B, AB, 0',
@@ -104,6 +103,136 @@ class _HealthDetailsState extends State<HealthDetails> {
             //    ),
             //  ),),
            ),
+
+
+           //Defines the card to hold the emergency number for national Gbv
+            Card(
+          
+          elevation: 8.0,
+          margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+          child: Container(
+            decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+            child: 
+ListTile(
+
+        
+          contentPadding:
+              EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+            
+          leading: Container(
+            padding: EdgeInsets.only(right: 12.0),
+            decoration: new BoxDecoration(
+                border: new Border(
+                    right: new BorderSide(width: 1.0, color: Colors.white24))),
+           
+
+            child:
+             Icon(Icons.phone, color: Colors.white, size: 40.0,),
+             
+  
+           
+          ),
+
+         
+          title: Text(
+          "Children Help-line",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+
+          // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
+
+          subtitle: Row(
+            children: <Widget>[
+    
+                
+                  
+              Expanded(
+                flex: 4,
+                child: Padding(
+                    padding: EdgeInsets.only(left: 0.0),
+                    child: Text("116",
+                        style: TextStyle(color: Colors.white))),
+              )
+            ],
+          ),
+          // trailing:
+          //     Icon(Icons.account_circle, color: Colors.white, size: 30.0),
+          onTap: () {
+            
+            // Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //         builder: (context) => DetailPage(lesson: lesson)));
+          },
+          ),
+        
+          ),
+        ),
+
+
+           //Defines the card to hold the emergency number for national Gbv
+            Card(
+          
+          elevation: 8.0,
+          margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+          child: Container(
+            decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+            child: 
+ListTile(
+
+        
+          contentPadding:
+              EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+            
+          leading: Container(
+            padding: EdgeInsets.only(right: 12.0),
+            decoration: new BoxDecoration(
+                border: new Border(
+                    right: new BorderSide(width: 1.0, color: Colors.white24))),
+           
+
+            child:
+             Icon(Icons.phone, color: Colors.white, size: 40.0,),
+             
+  
+           
+          ),
+
+         
+          title: Text(
+          "Blood Group",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+
+          // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
+
+          subtitle: Row(
+            children: <Widget>[
+    
+                
+                  
+              Expanded(
+                flex: 4,
+                child: Padding(
+                    padding: EdgeInsets.only(left: 0.0),
+                    child: Text("116",
+                        style: TextStyle(color: Colors.white))),
+              )
+            ],
+          ),
+          // trailing:
+          //     Icon(Icons.account_circle, color: Colors.white, size: 30.0),
+          onTap: () {
+            
+            // Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //         builder: (context) => DetailPage(lesson: lesson)));
+          },
+          ),
+        
+          ),
+        ),
            Container(
              padding: EdgeInsets.all(20.0),
              child: TextFormField(
