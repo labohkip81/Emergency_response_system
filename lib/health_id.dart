@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './health_details.dart';
 
 import 'dart:async';
 import 'package:sqflite/sqflite.dart';
@@ -29,7 +30,9 @@ class _HealthIdState extends State<HealthId> {
           actions: <Widget>[
             RaisedButton(
               color: Colors.blue,
-              onPressed: (){},
+              onPressed: (){
+                Navigator.push(context,MaterialPageRoute(builder: (context)=>HealthDetails()));
+              },
               child: Text('SAVE'),
             ),
              ],
