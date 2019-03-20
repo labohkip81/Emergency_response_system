@@ -73,6 +73,10 @@ class _ListPageState extends State<ListPage> {
   File _imageFile;
   List lessons;
 
+ 
+
+
+
   @override
   void initState() {
     lessons = getLessons();
@@ -943,6 +947,7 @@ Card aboutUSCard() => Card(
               icon: Icon(Icons.camera_alt, color: Colors.white,),
               onPressed: () {
                 _pickImageFromCamera();
+                _emailUrl("labankiplagat81@gmail.com", "I am in an emergency", _imageFile);
               },
             ),
             //This code will open map with a parameter passed
@@ -1053,13 +1058,26 @@ Card aboutUSCard() => Card(
 
 //This code defines the implementation process for taking picture and sending image
 
-Future<Null> _pickImageFromCamera() async{
+Future _pickImageFromCamera() async{
   final File imageFile =
   await ImagePicker.pickImage(source:ImageSource.camera);
   setState(()=>this._imageFile =imageFile);
 }
 
 //.....................................................................................
+
+
+//This code sends email to the emergency center.
+
+_emailUrl(String toMailId, String subject, File body) async {
+    var url = 'mailto:$toMailId?subject=$subject&body=$_imageFile';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+    Navigator.pop(context);
+  }
 
 
 
@@ -1091,6 +1109,7 @@ Navigator.push(context,MaterialPageRoute(builder: (context)=>NoteDetail("Emergen
 }
 
 }
+
 
 List getLessons() {
 
