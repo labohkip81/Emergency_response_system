@@ -18,6 +18,7 @@ environment:
 
 dependencies:
 
+ 
   path_provider: ^0.5.0+1 
   sqflite: any
   intl: ^0.15.7
@@ -51,6 +52,15 @@ flutter:
   uses-material-design: true
   assets:
     - assets/google.png
+    - assets/dev.png
+    - assets/about.png
+    - assets/accident.png
+    - assets/aid.png
+    - assets/ambulance.png
+    - assets/breakdown.png
+    - assets/fire.png
+    - assets/health.png
+    - assets/police.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

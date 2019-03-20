@@ -1,11 +1,14 @@
 import 'model/lesson.dart';
 import 'package:flutter/material.dart';
+import './emergency_numbers.dart';
+import './health_details.dart';
 
 import './menu.dart';
 import './login.dart';
 import './sign_up.dart';
 import './health_id.dart';
-
+import 'dart:io';
+import 'dart:async';
 //The import below handles opening a new page webpage within the app
 
 
@@ -60,14 +63,20 @@ class ListPage extends StatefulWidget {
 
   final String title;
 
+ 
+
   @override
   _ListPageState createState() => _ListPageState();
 }
 
 class _ListPageState extends State<ListPage> {
 
-
+  File _imageFile;
   List lessons;
+
+ 
+
+
 
   @override
   void initState() {
@@ -174,18 +183,33 @@ Dialog errorDialog = Dialog(
     child: ListView(
       
       children: <Widget>[
+ FlatButton(onPressed: (){
+        
+        },
 
+        child: ListTile(
+          contentPadding: EdgeInsets.only(left: 60.0),
+          title: Text('Locations Nearby', style: TextStyle(color: Colors.black, fontSize: 18.0),),
+        
+        ),
+            // child: 
+            // 
+            
+            ),
 
        FlatButton(onPressed: (){
-        
+          _hospitalURL();
         },
-            child: Text('Select Location', style: TextStyle(color: Colors.red, fontSize: 18.0),)),
+
+        child: ListTile(
+          leading: Icon(Icons.navigation),
+          title: Text('Hospitals', style: TextStyle(color: Colors.purple, fontSize: 18.0),),
+          trailing: Icon(Icons.arrow_forward_ios),
+        ),
+            // child: 
+            // 
             
-        
-        FlatButton(onPressed: (){
-          _launchURL();
-        },
-            child: Text('Hospitals', style: TextStyle(color: Colors.purple, fontSize: 18.0),)),
+            ),
             
         // Padding(
         //   padding:  EdgeInsets.all(15.0),
@@ -196,34 +220,68 @@ Dialog errorDialog = Dialog(
         FlatButton(onPressed: (){
           _launchURL();
         },
-            child: Text('Police Stations', style: TextStyle(color: Colors.purple, fontSize: 18.0),)),
+
+        child: ListTile(
+          leading: Icon(Icons.navigation),
+          title: Text('Police Stations', style: TextStyle(color: Colors.purple, fontSize: 18.0),),
+          trailing: Icon(Icons.arrow_forward_ios),
+        ),
+            // child: 
+            // 
+            
+            ),
 
        Padding(padding: EdgeInsets.only(top: 20.0)),
 
-      FlatButton(onPressed: (){
-          _launchURL();
+       FlatButton(onPressed: (){
+          _bankURL();
         },
-            child: Text('Fire Stations', style: TextStyle(color: Colors.purple, fontSize: 18.0),)),
 
-            Padding(padding: EdgeInsets.only(top: 20.0)),
+        child: ListTile(
+          leading: Icon(Icons.navigation),
+          title: Text('Banks and Atms', style: TextStyle(color: Colors.purple, fontSize: 18.0),),
+          trailing: Icon(Icons.arrow_forward_ios),
+        ),
+            // child: 
+            // 
+            
+            ),
 
-            FlatButton(onPressed: (){
-          _launchURL();
+
+
+       FlatButton(onPressed: (){
+          _garageURL();
         },
-            child: Text('Hospitals', style: TextStyle(color: Colors.purple, fontSize: 18.0),)),
 
-
+        child: ListTile(
+          leading: Icon(Icons.navigation),
+          title: Text('Car Garages', style: TextStyle(color: Colors.purple, fontSize: 18.0),),
+          trailing: Icon(Icons.arrow_forward_ios),
+        ),
+            // child: 
+            // 
+            
+            ),
        Padding(padding: EdgeInsets.only(top: 20.0)),
 
-
-            FlatButton(onPressed: (){
-          _launchURL();
+FlatButton(onPressed: (){
+          _fireURL();
         },
-            child: Text('Chemist Shops', style: TextStyle(color: Colors.purple, fontSize: 18.0),)),
+
+        child: ListTile(
+          leading: Icon(Icons.navigation),
+          title: Text('Fire Stations', style: TextStyle(color: Colors.purple, fontSize: 18.0),),
+          trailing: Icon(Icons.arrow_forward_ios),
+        ),
+            // child: 
+            // 
+            
+            ),
 
         
      
-
+//............................................................................................................................
+//This marks the end of the locations dialog box
         
       ],
     ),
@@ -251,8 +309,19 @@ ListTile ambulanceTile() => ListTile(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
            
 
-            child:
-             Icon(Icons.blur_on, color: Colors.white),
+            
+            child: CircleAvatar(
+               
+               backgroundColor: Colors.white,
+               radius: 20.0,
+               child: Image.asset(
+                 'assets/ambulance.png',
+                 width:60.0,
+                 height:60.0,
+                 fit:BoxFit.cover,
+                 color: Colors.blue,
+               ),
+             ),            
              
   
            
@@ -268,19 +337,11 @@ ListTile ambulanceTile() => ListTile(
 
           subtitle: Row(
             children: <Widget>[
-              Expanded(
-                  flex: 1,
-                  child: Container(
-                    // tag: 'hero',
-                    child: LinearProgressIndicator(
-                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-                        value: 0.5,
-                        valueColor: AlwaysStoppedAnimation(Colors.green)),
-                  )),
+             
               Expanded(
                 flex: 4,
                 child: Padding(
-                    padding: EdgeInsets.only(left: 10.0),
+                    padding: EdgeInsets.only(left: 0.0),
                     child: Text("Request for an ambulance",
                         style: TextStyle(color: Colors.white))),
               )
@@ -317,8 +378,18 @@ ListTile fireTile() => ListTile(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
            
 
-            child:
-             Icon(Icons.local_car_wash, color: Colors.white),
+            child: CircleAvatar(
+               
+               backgroundColor: Colors.white,
+               radius: 20.0,
+               child: Image.asset(
+                 'assets/fire.png',
+                 width:50.0,
+                 height:50.0,
+                 fit:BoxFit.cover,
+                 color: Colors.deepOrange,
+               ),
+             ),            
              
   
            
@@ -334,21 +405,15 @@ ListTile fireTile() => ListTile(
 
           subtitle: Row(
             children: <Widget>[
-              Expanded(
-                  flex: 1,
-                  child: Container(
-                    // tag: 'hero',
-                    child: LinearProgressIndicator(
-                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-                        value: 0.5,
-                        valueColor: AlwaysStoppedAnimation(Colors.red)),
-                  )),
+             
+
               Expanded(
                 flex: 4,
                 child: Padding(
-                    padding: EdgeInsets.only(left: 10.0),
+                    padding: EdgeInsets.only(right: 30.0),
                     child: Text("Request for a fire fighter",
-                        style: TextStyle(color: Colors.white))),
+                        style: TextStyle(
+                          color: Colors.white))),
               )
             ],
           ),
@@ -379,9 +444,19 @@ ListTile fireTile() => ListTile(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
            
 
-            child:
-             Icon(Icons.lightbulb_outline, color: Colors.white),
-             
+           
+            child: CircleAvatar(
+               
+               backgroundColor: Colors.white,
+               radius: 20.0,
+               child: Image.asset(
+                 'assets/police.png',
+                 width:40.0,
+                 height:40.0,
+                 fit:BoxFit.cover,
+                 color: Colors.blue,
+               ),
+             ),            
   
            
           ),
@@ -396,19 +471,11 @@ ListTile fireTile() => ListTile(
 
           subtitle: Row(
             children: <Widget>[
-              Expanded(
-                  flex: 1,
-                  child: Container(
-                    // tag: 'hero',
-                    child: LinearProgressIndicator(
-                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-                        value: 0.5,
-                        valueColor: AlwaysStoppedAnimation(Colors.orange)),
-                  )),
+              
               Expanded(
                 flex: 4,
                 child: Padding(
-                    padding: EdgeInsets.only(left: 10.0),
+                    padding: EdgeInsets.only(left: 0.0),
                     child: Text("Alert the police",
                         style: TextStyle(color: Colors.white))),
               )
@@ -442,9 +509,19 @@ ListTile accidentTile() => ListTile(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
            
 
-            child:
-             Icon(Icons.beenhere, color: Colors.white),
-             
+        
+            child: CircleAvatar(
+               
+               backgroundColor: Colors.white,
+               radius: 20.0,
+               child: Image.asset(
+                 'assets/accident.png',
+                 width:50.0,
+                 height:50.0,
+                 fit:BoxFit.cover,
+                 color: Colors.redAccent,
+               ),
+             ),            
   
            
           ),
@@ -459,19 +536,11 @@ ListTile accidentTile() => ListTile(
 
           subtitle: Row(
             children: <Widget>[
-              Expanded(
-                  flex: 1,
-                  child: Container(
-                    // tag: 'hero',
-                    child: LinearProgressIndicator(
-                        backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
-                        value: 0.5,
-                        valueColor: AlwaysStoppedAnimation(Colors.red)),
-                  )),
+             
               Expanded(
                 flex: 4,
                 child: Padding(
-                    padding: EdgeInsets.only(left: 10.0),
+                    padding: EdgeInsets.only(left: 0.0),
                     child: Text("Report an accident",
                         style: TextStyle(color: Colors.white))),
               )
@@ -505,8 +574,18 @@ ListTile healthListTile() => ListTile(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
            
 
-            child:
-             Icon(Icons.supervisor_account, color: Colors.white, size: 40.0,),
+               child: CircleAvatar(
+               backgroundColor: Colors.white,
+               radius: 20.0,
+               child: Image.asset(
+                 'assets/health.png',
+                 width:40.0,
+                 height:40.0,
+                 fit:BoxFit.cover,
+                 color: Colors.green,
+               ),
+             ),            
+  
              
   
            
@@ -537,7 +616,7 @@ ListTile healthListTile() => ListTile(
           trailing:
               Icon(Icons.account_circle, color: Colors.white, size: 30.0),
           onTap: () {
-            Navigator.push(context,MaterialPageRoute(builder: (context)=>HealthId()));
+            Navigator.push(context,MaterialPageRoute(builder: (context)=>HealthDetails()));
             // Navigator.push(
             //     context,
             //     MaterialPageRoute(
@@ -560,8 +639,12 @@ ListTile panicListTile() => ListTile(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
            
 
-            child:
-             Icon(Icons.transfer_within_a_station, color: Colors.white),
+              child: CircleAvatar(
+               backgroundColor: Colors.white,
+               radius: 20.0,
+               child: Icon(Icons.transfer_within_a_station),
+             ),            
+  
              
   
            
@@ -615,8 +698,18 @@ ListTile breakDownTile() => ListTile(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
            
 
-            child:
-             Icon(Icons.traffic, color: Colors.redAccent, size: 30.0,),
+            
+               child: CircleAvatar(
+               backgroundColor: Colors.white,
+               radius: 20.0,
+               child: Image.asset(
+                 'assets/breakdown.png',
+                 width:40.0,
+                 height:40.0,
+                 fit:BoxFit.cover,
+                 color: Colors.black,
+               ),
+             ),   
              
   
            
@@ -644,7 +737,9 @@ ListTile breakDownTile() => ListTile(
           ),
           trailing:
               Icon(Icons.arrow_right, color: Colors.white, size: 30.0),
-          onTap: () {}
+          onTap:_garageURL,
+            
+          
 
            
 
@@ -676,8 +771,19 @@ ListTile firstAidListTile() => ListTile(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
            
 
-            child:
-             Icon(Icons.nature_people, color: Colors.white,size: 30.0,),
+            
+               child: CircleAvatar(
+              foregroundColor: Colors.white,
+               backgroundColor: Colors.white,
+               radius: 20.0,
+               child: Image.asset(
+                 'assets/aid.png',
+                 width:40.0,
+                 height:40.0,
+                 fit:BoxFit.cover,
+                 color: Colors.red,
+               ),
+             ),   
              
   
            
@@ -732,9 +838,17 @@ ListTile aboutUSListTile() => ListTile(
                     right: new BorderSide(width: 1.0, color: Colors.white24))),
            
 
-            child:
-             Icon(Icons.people_outline, color: Colors.white, size: 30.0,),
-             
+               child: CircleAvatar(
+               backgroundColor: Colors.white,
+               radius: 20.0,
+               child: Image.asset(
+                 'assets/about.png',
+                 width:40.0,
+                 height:40.0,
+                 fit:BoxFit.cover,
+                 color: Colors.lightBlue,
+               ),
+             ),   
   
            
           ),
@@ -938,6 +1052,7 @@ Card aboutUSCard() => Card(
             IconButton(
               icon: Icon(Icons.camera_alt, color: Colors.white,),
               onPressed: () {
+                _pickImageFromCamera();
                 
               },
             ),
@@ -983,6 +1098,8 @@ Card aboutUSCard() => Card(
         ),
       ),
     );
+
+    //This defines the top appBar and the buttons
     final topAppBar = AppBar(
       elevation: 0.1,
       backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
@@ -1026,7 +1143,7 @@ Card aboutUSCard() => Card(
          policeCard(),
          accidentCard(),
          healthCard(),
-         panicCard(),
+        
          breakDownCard(),
          firstAidCard(),
          aboutUSCard(),
@@ -1041,7 +1158,64 @@ Card aboutUSCard() => Card(
       bottomNavigationBar: makeBottom,
     );
   }
+
+
+
+
+//This code defines the implementation process for taking picture and sending image
+
+Future _pickImageFromCamera() async{
+  final File imageFile =
+  await ImagePicker.pickImage(source:ImageSource.camera);
+  setState(()=>this._imageFile =imageFile);
 }
+
+//.....................................................................................
+
+
+//This code sends email to the emergency center.
+
+_emailUrl(String toMailId, String subject, File body) async {
+    var url = 'mailto:$toMailId?subject=$subject&body=$_imageFile';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+    Navigator.pop(context);
+  }
+
+
+
+
+  // to implement functionality fo popup menu
+void choiceAction(String choice){
+  if(choice ==Constant.Share){
+    // code when buttons clicked to open another activity
+ debugPrint("Share button Clicked");
+  
+  
+  Share.share('Text');}
+
+
+  else if(choice == Constant.Help){
+
+    debugPrint("Help Button clicked");
+        //This opens the about page from the actionbar
+Navigator.push(context,MaterialPageRoute(builder: (context)=>NoteDetail("Emergency Page")));
+  }
+  else{
+
+//This Routes to the page that has the emergency information and Sos contacts
+Navigator.push(context,MaterialPageRoute(builder: (context)=>NoteDetail("Emergency Page")));
+    debugPrint("About button Clicked");
+  }
+   
+
+}
+
+}
+
 
 List getLessons() {
 
@@ -1100,6 +1274,7 @@ List getLessons() {
             "Start by taking a couple of minutes to read the info in this section. Launch your app and click on the Settings menu.  While on the settings page, click the Save button.  You should see a circular progress indicator display in the middle of the page and the user interface elements cannot be clicked due to the modal barrier that is constructed.  ")
   ];
 }
+
 // to implement functionality fo popup menu
 void choiceAction(String choice){
   if(choice ==Constant.Share){
@@ -1111,14 +1286,14 @@ void choiceAction(String choice){
     // print("Accounts Button Clicked");
   }
 
-   
-
-}
 
 
 //This functionality opens an external url link.
 
 
+
+
+//Police Stations url.
 _launchURL() async {
   const url = 'https://www.google.com/maps/search/?api=1&query=Police Stations';
   if (await canLaunch(url)) {
@@ -1128,6 +1303,50 @@ _launchURL() async {
   }
 }
 
+//Function for Hospital Google Maps
+_hospitalURL() async {
+  const url = 'https://www.google.com/maps/search/?api=1&query=Hospitals';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+
+
+//Banks and Atms url
+
+_bankURL() async {
+  const url = 'https://www.google.com/maps/search/?api=1&query=Banks and Atms';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+//Car garage Url
+_garageURL() async {
+  const url = 'https://www.google.com/maps/search/?api=1&query=Garages';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+
+//Fire stations google map url
+
+_fireURL() async {
+  const url = 'https://www.google.com/maps/search/?api=1&query=FireStation';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
 
 
 
