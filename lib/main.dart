@@ -6,7 +6,8 @@ import './menu.dart';
 import './login.dart';
 import './sign_up.dart';
 import './health_id.dart';
-
+import 'dart:io';
+import 'dart:async';
 //The import below handles opening a new page webpage within the app
 
 
@@ -939,7 +940,7 @@ Card aboutUSCard() => Card(
             IconButton(
               icon: Icon(Icons.camera_alt, color: Colors.white,),
               onPressed: () {
-                
+                ImagePicker.pickImage(source: ImageSource.camera);
               },
             ),
             //This code will open map with a parameter passed
@@ -1045,6 +1046,22 @@ Card aboutUSCard() => Card(
     );
   }
 
+
+
+
+//This code defines the implementation process for taking picture and sending image
+
+Future<Null> _pickImageFromCamera() async{
+  final File imageFile =
+  await ImagePicker.pickImage(source:ImageSource.camera);
+  setState(()=>this._imageFile =imageFile);
+}
+
+//.....................................................................................
+
+
+
+
   // to implement functionality fo popup menu
 void choiceAction(String choice){
   if(choice ==Constant.Share){
@@ -1130,6 +1147,12 @@ List getLessons() {
             "Start by taking a couple of minutes to read the info in this section. Launch your app and click on the Settings menu.  While on the settings page, click the Save button.  You should see a circular progress indicator display in the middle of the page and the user interface elements cannot be clicked due to the modal barrier that is constructed.  ")
   ];
 }
+
+
+
+//This Function defines the camera functionality using the image picker functionality
+
+
 
 
 //This functionality opens an external url link.

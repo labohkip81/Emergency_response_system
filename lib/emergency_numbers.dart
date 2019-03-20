@@ -60,46 +60,54 @@ Widget build(BuildContext context) {
         child: ListView(
           children: <Widget>[
             //first element
-            ListTile(
-              title: DropdownButton(
-                //The items are defined as priorities list.
-                items: _properties.map((String dropDownStringItem){
+            // ListTile(
+            //   title: DropdownButton(
+            //     //The items are defined as priorities list.
+            //     items: _properties.map((String dropDownStringItem){
 
-                  return DropdownMenuItem<String>(
-                   value: dropDownStringItem,
-                   child: Text(dropDownStringItem),
-                  );
-                }
-                ).toList(),
+            //       return DropdownMenuItem<String>(
+            //        value: dropDownStringItem,
+            //        child: Text(dropDownStringItem),
+            //       );
+            //     }
+            //     ).toList(),
 
-                style: textStyle,
+            //     style: textStyle,
 
-                //Default value for the dropdown
+            //     //Default value for the dropdown
 
-                value: 'Low',
+            //     value: 'Low',
                 
-                 onChanged: (valueSelectedByUser){
-                   setState(() {
-                     debugPrint('User selected $valueSelectedByUser');
-                   });
-                 }
-              ),
+            //      onChanged: (valueSelectedByUser){
+            //        setState(() {
+            //          debugPrint('User selected $valueSelectedByUser');
+            //        });
+            //      }
+            //   ),
 
 
-            ),
+            // ),
+
+
+
+
 
 
 
 //Defines the card to hold the emergency number for national Gbv
             Card(
+          
           elevation: 8.0,
           margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
           child: Container(
             decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
             child: 
 ListTile(
+
+        
           contentPadding:
-              EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+            
           leading: Container(
             padding: EdgeInsets.only(right: 12.0),
             decoration: new BoxDecoration(
@@ -150,6 +158,89 @@ ListTile(
           ),
         ),
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //Defines the card to hold the emergency number for national Gbv
+            Card(
+          
+          elevation: 8.0,
+          margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+          child: Container(
+            decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+            child: 
+ListTile(
+
+        
+          contentPadding:
+              EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+            
+          leading: Container(
+            padding: EdgeInsets.only(right: 12.0),
+            decoration: new BoxDecoration(
+                border: new Border(
+                    right: new BorderSide(width: 1.0, color: Colors.white24))),
+           
+
+            child:
+             Icon(Icons.phone, color: Colors.white, size: 40.0,),
+             
+  
+           
+          ),
+
+         
+          title: Text(
+          "Children Help-line",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+
+          // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
+
+          subtitle: Row(
+            children: <Widget>[
+    
+                
+                  
+              Expanded(
+                flex: 4,
+                child: Padding(
+                    padding: EdgeInsets.only(left: 0.0),
+                    child: Text("116",
+                        style: TextStyle(color: Colors.white))),
+              )
+            ],
+          ),
+          // trailing:
+          //     Icon(Icons.account_circle, color: Colors.white, size: 30.0),
+          onTap: () {
+            
+            // Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //         builder: (context) => DetailPage(lesson: lesson)));
+          },
+          ),
+        
+          ),
+        ),
             //Defining the second widget
 
             Padding(
@@ -161,7 +252,7 @@ ListTile(
                   debugPrint("Something changed in the Title text field");
                 },
                 decoration: InputDecoration(
-                  labelText: 'Title',
+                  labelText: 'Organization Name',
                   labelStyle: textStyle,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5.0)
@@ -183,7 +274,7 @@ ListTile(
                   debugPrint("Something changed in the description text field");
                 },
                 decoration: InputDecoration(
-                  labelText: 'Description',
+                  labelText: 'Contact',
                   labelStyle: textStyle,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5.0)
@@ -233,7 +324,7 @@ ListTile(
                      color: Theme.of(context).primaryColorDark,
                      textColor: Theme.of(context).primaryColorLight,
                      child: Text(
-                       "Delete",
+                       "Update",
                        textScaleFactor: 1.5,
                      ),
                   onPressed: (){
