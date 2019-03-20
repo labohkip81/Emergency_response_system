@@ -1129,7 +1129,7 @@ Card aboutUSCard() => Card(
         Navigator.push(context,MaterialPageRoute(builder: (context)=>HealthId()));
       },
       icon: Icon(Icons.add),
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: Colors.redAccent,
       label:Text( 'Health ID'),
       
     ),
@@ -1275,10 +1275,16 @@ List getLessons() {
   ];
 }
 
+// to implement functionality fo popup menu
+void choiceAction(String choice){
+  if(choice ==Constant.Share){
+    // Navigator.push(context,MaterialPageRoute(builder: (context)=>Help()));
+    // code when buttons clicked to open another activity
 
-
-//This Function defines the camera functionality using the image picker functionality
-
+  //   Share.share('Text');}
+  // else if(choice == Constant.Account){
+    // print("Accounts Button Clicked");
+  }
 
 
 

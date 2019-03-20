@@ -30,6 +30,17 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> implements LoginPageContract{
+  bool _obscureText = true;
+
+
+
+  // Toggles the password show status
+  void _toggle() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
+
   BuildContext _ctx;
   bool _isLoading;
   final formKey=new GlobalKey<FormState>();
@@ -127,7 +138,7 @@ final makeBottom = Container(
               children: <Widget>[
                 Container(
                   padding: EdgeInsets.only(
-                    top: 70.0,
+                    top: 20.0,
                     left: 15.0,
                     
                   ),
@@ -137,7 +148,7 @@ final makeBottom = Container(
                 ),
                 Container(
                   padding: EdgeInsets.only(
-                    top: 130.0,
+                    top: 70.0,
                     left: 15.0,
                   ),
                   child: Text('There',
@@ -146,7 +157,7 @@ final makeBottom = Container(
                 ),
                 Container(
                   padding: EdgeInsets.only(
-                    top: 100.0,
+                    top: 60.0,
                     left: 200.0,
                   ),
                   child: Text('.',
@@ -167,12 +178,19 @@ final makeBottom = Container(
               children: <Widget>[
                 
                 TextFormField(
+
+                  validator: (String arg){
+                    if (arg.length < 3) 
+                      return 'Name must be more than two letters';
+                    else
+                      return null;
+                  },
+                  cursorColor: Colors.green,
                   maxLines: 1,
                   onSaved: (val)=>_username =val,
-                  keyboardType: TextInputType.emailAddress,
                   autofocus: false,
                   decoration: InputDecoration(
-                    labelText: 'Username',
+                    labelText: 'USERNAME',
                     labelStyle: TextStyle(
                         fontWeight: FontWeight.bold, 
                         color: Colors.white
@@ -184,12 +202,21 @@ final makeBottom = Container(
                   height: 20.0,
                 ),
                 TextFormField(
-                  obscureText: true,
-                  onSaved: (val)=>_password =val,
+                  textInputAction: TextInputAction.done,
+                  cursorColor: Colors.green,
+                  onSaved: (val) => this._password = val,
+                  obscureText: _obscureText,
+                  // onSaved: (val)=>_password =val,
+                   validator: (val) =>val.length < 6 ? 'Password too short.' : null,
                   maxLines: 1,
                   maxLength: 10,
                   autofocus: false,
                   decoration: InputDecoration(
+                    suffixIcon:IconButton(
+                      onPressed: _toggle,
+                      color: Colors.white,
+                      icon: Icon(Icons.remove_red_eye),
+                    ),
                     labelText: 'PASSWORD',
                     labelStyle: TextStyle(
                         fontWeight: FontWeight.bold, 
@@ -197,27 +224,12 @@ final makeBottom = Container(
                         ),
                         focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.green))
                   ),
-               
+       
                 ),
-                SizedBox(
-                  height: 5.0,
-                ),
+            
+                SizedBox(height: 20.0,),
                 Container(
-                  alignment: Alignment(1.0, 0.0),
-                  padding: EdgeInsets.only(left: 20.0, top: 15.0),
-                  child: InkWell(
-                    child: Text(
-                      'Forgot Password',
-                      style: TextStyle(
-                          fontSize: 15.0,
-                          color: Colors.green,
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.underline),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 40.0,),
-                Container(
+                  
                   
                   height: 40.0,
                   child: Material(
@@ -226,81 +238,25 @@ final makeBottom = Container(
                     color: Colors.green,
                     elevation: 7.0,
                     child: RaisedButton(
+                      color: Colors.green,
                       onPressed:_submit,
                       child: Center(
                         child: Text(
-                          'LOGIN',
+                          'SUBMIT',
                         style:TextStyle(
-                          color:Colors.white ,
+                          color:Colors.black ,
                           fontWeight: FontWeight.bold)),
                       ),
                     ),
 
                   ),
                 ),
-                SizedBox(height: 20.0,),
-                Container(
-                  height: 40.0,
-                  color: Colors.transparent,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color:Colors.black,
-                        style: BorderStyle.solid,
-                        width: 1.0,
-                      ),
-                      color: Colors.transparent,
-                      borderRadius: BorderRadius.circular(20.0)
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Center(child:
-                        
-                         ImageIcon(AssetImage('assets/google.png'),color: Colors.white,),),
-                         SizedBox(width: 20.0,),
-                         Center(
-                           child: Text('Login using Google',
-                           style:TextStyle(color:Colors.white,fontWeight:FontWeight.bold)),
-                         )
-                      ],
-                    ),
-                  ),
-                )
+            
               ],
             ),
           ),
           ),
-          SizedBox(height: 15.0,),
-          Row(
-            
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text('New to K-Dharura?',
-              style:TextStyle(
-                color: Colors.white,
-                fontWeight:FontWeight.bold,)),
-                SizedBox(width: 5.0,),
-                
-                InkWell(
-                  onTap: (){
-                   Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => SignUp(),
-                settings: RouteSettings(name: 'sign_up')),
-          );
-                  },
-                  child: Text('Register',
-                  style:TextStyle(
-                    fontWeight:FontWeight.bold,
-                    color:Colors.green,
-                    decoration: TextDecoration.underline,
-                  )),
-
-                ),
-            ],
-          )
+          
          ],
       ),
       
