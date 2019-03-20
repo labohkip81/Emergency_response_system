@@ -62,13 +62,15 @@ class ListPage extends StatefulWidget {
 
   final String title;
 
+ 
+
   @override
   _ListPageState createState() => _ListPageState();
 }
 
 class _ListPageState extends State<ListPage> {
 
-
+  File _imageFile;
   List lessons;
 
   @override
@@ -940,7 +942,7 @@ Card aboutUSCard() => Card(
             IconButton(
               icon: Icon(Icons.camera_alt, color: Colors.white,),
               onPressed: () {
-                ImagePicker.pickImage(source: ImageSource.camera);
+                _pickImageFromCamera();
               },
             ),
             //This code will open map with a parameter passed
