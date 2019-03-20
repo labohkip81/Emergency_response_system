@@ -947,7 +947,7 @@ Card aboutUSCard() => Card(
               icon: Icon(Icons.camera_alt, color: Colors.white,),
               onPressed: () {
                 _pickImageFromCamera();
-                _emailUrl("labankiplagat81@gmail.com", "I am in an emergency", _imageFile);
+                
               },
             ),
             //This code will open map with a parameter passed
